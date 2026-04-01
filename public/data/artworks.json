@@ -1,0 +1,54 @@
+[
+  {
+    "id": "artwork-01",
+    "targetName": "art-01",
+    "targetData": "./targets/compiled/art-01.json",
+    "title": "test V3",
+    "artist": "test",
+    "year": "2024",
+    "description": "Primary architectural model of the Chancery Rosewood collection, featuring detailed structural elements and material studies.",
+    "model": "./models/art3d-01.glb",
+    "scale": 0.5,
+    "offset": [0, 0.1, 0]
+  },
+  {
+    "id": "MarieSaintYves",
+    "targetName": "MarieSaintYves",
+    "targetData": "./targets/compiled/MarieSaintYves/MarieSaintYves.json",
+    "title": "Experiment n58-2 Position in space",
+    "artist": "MarieSaintYves",
+    "year": "2024",
+    "description": "Primary architectural model of the Chancery Rosewood collection, featuring detailed structural elements and material studies.",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.02.png", "width": 0.3, "height": 0.2, "caption": "A"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.07.png", "width": 0.3, "height": 0.2, "caption": "B"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.11.png", "width": 0.3, "height": 0.2, "caption": "C"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.17.png", "width": 0.3, "height": 0.2, "caption": "D"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.21.png", "width": 0.3, "height": 0.2, "caption": "E"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.26.png", "width": 0.3, "height": 0.2, "caption": "F"}
+    ],
+    "layout": "arc",
+    "scale": 2,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "YiyuChoeyChen",
+    "targetName": "tar_YiyuChoeyChen",
+    "targetData": "./targets/compiled/YiyuChoeyChen/tar_YiyuChoeyChen.json",
+    "title": "In Transitional Space",
+    "artist": "Yiyu Choey Chen",
+    "year": "2024",
+    "description": "In the Transitional Space, explore the fragile boundary between reality and imagination, where trauma does not need to be spoken but can be sensed and held. Rooted in the idea of Winnicott’s “transitional space,” the project approaches intergenerational wounds not through direct depiction, but through symbolic language that allows for containment, reflection, and transformation.",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.47.48.png", "width": 0.3, "height": 0.2, "caption": "A"},
+      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.47.57.png", "width": 0.3, "height": 0.2, "caption": "B"},
+      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.48.04.png", "width": 0.3, "height": 0.2, "caption": "C"},
+      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.48.12.png", "width": 0.3, "height": 0.2, "caption": "D"}
+    ],
+    "layout": "arc",
+    "scale": 2,
+    "offset": [0, 1, 0]
+  }
+]
