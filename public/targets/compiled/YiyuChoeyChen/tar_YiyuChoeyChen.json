@@ -1,0 +1,24 @@
+{
+  "imagePath": "image-targets/tar_YiyuChoeyChen_luminance.jpg",
+  "metadata": null,
+  "name": "tar_YiyuChoeyChen",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 106,
+    "width": 1281,
+    "height": 1708,
+    "isRotated": true,
+    "originalWidth": 1281,
+    "originalHeight": 1920,
+    "physicalWidthInMeters": 0.4
+  },
+  "resources": {
+    "originalImage": "tar_YiyuChoeyChen_original.jpg",
+    "croppedImage": "tar_YiyuChoeyChen_cropped.jpg",
+    "thumbnailImage": "tar_YiyuChoeyChen_thumbnail.jpg",
+    "luminanceImage": "tar_YiyuChoeyChen_luminance.jpg"
+  },
+  "created": 1773266906860,
+  "updated": 1773266906860
+}
