@@ -12,6 +12,19 @@
     "offset": [0, 0.1, 0]
   },
   {
+    "id": "BeNotAfraid",
+    "targetName": "BeNotAfraid-RysiaAnnaKaczmar",
+    "targetData": "./targets/compiled/BeNotAfraid-RysiaAnnaKaczmar/BeNotAfraid-RysiaAnnaKaczmar.json",
+    "title": "Be Not Afraid",
+    "artist": "Rysia Anna Kaczmar",
+    "year": "2025",
+    "description": "gods",
+    "model": "./data/BeNotAfraid-RysiaAnnaKaczmar/BeNotAfraid_Artwork3D.glb",
+    "scale": 2,
+    "offset": [0, 1, 0]
+  },
+
+  {
     "id": "MarieSaintYves",
     "targetName": "MarieSaintYves",
     "targetData": "./targets/compiled/MarieSaintYves/MarieSaintYves.json",
@@ -51,4 +64,5 @@
     "scale": 2,
     "offset": [0, 1, 0]
   }
+
 ]
