@@ -107,6 +107,74 @@
     "offset": [0, 1, 0]
   },
   {
+    "id": "EmbodiedMemories",
+    "targetName": "EmbodiedMemories-YoonJuChung",
+    "targetData": "./targets/compiled/EmbodiedMemories-YoonJuChung/EmbodiedMemories-YoonJuChung.json",
+    "title": "Embodied Memories",
+    "artist": "Yoon Ju Chung",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_1.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_2.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_3.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_4.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_5.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_6.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "FauxFlora",
+    "targetName": "FauxFlora-JustinaAlexandroff",
+    "targetData": "./targets/compiled/FauxFlora-JustinaAlexandroff/FauxFlora-JustinaAlexandroff.json",
+    "title": "Faux Flora",
+    "artist": "Justina Alexandroff",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_1.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_2.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_3.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_4.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_5.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_6.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "LetMeEatCake",
+    "targetName": "LetMeEatCake-SuzannaTeal",
+    "targetData": "./targets/compiled/LetMeEatCake-SuzannaTeal/LetMeEatCake-SuzannaTeal.json",
+    "title": "Let Me Eat Cake",
+    "artist": "Suzanna Teal",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_1.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_2.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_3.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_4.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_5.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
     "id": "NoLongerUs",
     "targetName": "NoLongerUs-JunShya",
     "targetData": "./targets/compiled/NoLongerUs-JunShya/NoLongerUs-JunShya.json",
