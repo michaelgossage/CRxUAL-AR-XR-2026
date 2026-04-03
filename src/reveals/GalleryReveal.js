@@ -44,6 +44,30 @@ const LAYOUTS = {
       };
     });
   },
+  // Carousel — panels on a cylindrical arc curving toward the camera.
+  // curve=0 → flat row; curve=1 → strong wrap (~144° arc).
+  // The _arcWrapper group rotates around the arc centre to bring active panel forward.
+  carousel: (count, spacing, curve = 0) => {
+    if (curve < 0.001 || count <= 1) {
+      return Array.from({ length: count }, (_, i) => ({
+        x: i * spacing, y: 0, z: 0,
+      }));
+    }
+    const arcAngle = curve * Math.PI * 0.8;           // 0 → ~144°
+    const totalWidth = (count - 1) * spacing;
+    const radius = (totalWidth / 2) / Math.sin(arcAngle / 2);
+    return Array.from({ length: count }, (_, i) => {
+      const t = (i / (count - 1)) - 0.5;             // -0.5 … +0.5
+      const angle = t * arcAngle;
+      return {
+        x: radius * Math.sin(angle),
+        y: 0,
+        z: radius * (1 - Math.cos(angle)),            // positive → toward camera
+        rotY: -angle,
+        _angle: angle,                                // stored for navigation
+      };
+    });
+  },
 };
 
 /**
@@ -55,8 +79,10 @@ const LAYOUTS = {
  *     { src: "./images/photo1.jpg", width: 0.3, height: 0.2, caption: "Optional" },
  *     { src: "./videos/clip.mp4",   width: 0.4, height: 0.3, autoplay: true },
  *   ]
- *   layout: "row" | "arc" | "grid"    (default: "row")
+ *   layout: "row" | "arc" | "grid" | "carousel"  (default: "row")
  *   spacing: 0.35                      (default: 0.35)
+ *   curve: 0.5                         (carousel only — arc curvature 0=flat … 1=~144° wrap, default: 0)
+ *   dotsY: -0.18                       (carousel only — dot indicator Y offset, default: -0.18)
  *   scale: 1.0                         (default: 1)
  *   offset: [0, 0.15, 0]              (default: [0, 0.15, 0]) — also accepts legacy panelOffset
  */
@@ -66,6 +92,13 @@ export default class GalleryReveal extends RevealBase {
     this.panelMeshes = [];
     this.videoElements = [];
     this.loaded = false;
+
+    // Carousel state — null when layout !== 'carousel'
+    this._carousel = null;
+    this._track = null;
+    this._arcWrapper = null;  // non-null only when curve > 0
+    this._dotMeshes = [];
+    this._carouselSpacing = 0;
   }
 
   async load() {
@@ -73,9 +106,11 @@ export default class GalleryReveal extends RevealBase {
       panels = [],
       layout = 'row',
       spacing = 0.35,
+      curve = 0,
       scale = 1,
       offset = [0, 0.15, 0],
       panelOffset,
+      dotsY = -0.18,
     } = this.config;
 
     // panelOffset is legacy — fall back to offset
@@ -86,9 +121,11 @@ export default class GalleryReveal extends RevealBase {
       return;
     }
 
-    // Compute positions
+    // Compute positions (carousel passes curve for arc layout)
     const layoutFn = LAYOUTS[layout] || LAYOUTS.row;
-    const positions = layoutFn(panels.length, spacing);
+    const positions = layout === 'carousel'
+      ? layoutFn(panels.length, spacing, curve)
+      : layoutFn(panels.length, spacing);
 
     // Create each panel
     const loadPromises = panels.map((panelDef, i) =>
@@ -102,10 +139,52 @@ export default class GalleryReveal extends RevealBase {
     container.position.set(off[0], off[1], off[2]);
     container.scale.setScalar(scale);
 
-    for (const mesh of meshes) {
-      if (mesh) {
-        container.add(mesh);
-        this.panelMeshes.push(mesh);
+    if (layout === 'carousel') {
+      this._track = new THREE.Group();
+
+      const isCurved = curve > 0.001 && panels.length > 1;
+
+      if (isCurved) {
+        const arcAngle = curve * Math.PI * 0.8;
+        const totalWidth = (panels.length - 1) * spacing;
+        const radius = (totalWidth / 2) / Math.sin(arcAngle / 2);
+        // Arc centre is at +z (toward camera). arcWrapper pivots there; track
+        // is offset back so the track origin sits at z=0 in container space.
+        this._arcWrapper = new THREE.Group();
+        this._arcWrapper.position.z = radius;
+        this._track.position.z = -radius;
+        this._arcWrapper.add(this._track);
+        container.add(this._arcWrapper);
+
+        // Store per-panel angles for navigation (extracted from layout positions)
+        const panelAngles = positions.map(p => p._angle ?? 0);
+        // Start with panel 0 already at the front (no initial sweep animation)
+        const initialAngle = panelAngles[0];
+        this._arcWrapper.rotation.y = initialAngle;
+        this._carousel = { index: 0, targetAngle: initialAngle, panelAngles, curveRadius: radius };
+      } else {
+        container.add(this._track);
+        this._carousel = { index: 0, targetX: 0, curveRadius: 0 };
+      }
+
+      for (const mesh of meshes) {
+        if (mesh) {
+          this._track.add(mesh);
+          this.panelMeshes.push(mesh);
+        }
+      }
+
+      this._carouselSpacing = spacing;
+
+      if (panels.length > 1) {
+        container.add(this._createDots(panels.length, dotsY));
+      }
+    } else {
+      for (const mesh of meshes) {
+        if (mesh) {
+          container.add(mesh);
+          this.panelMeshes.push(mesh);
+        }
       }
     }
 
@@ -113,11 +192,53 @@ export default class GalleryReveal extends RevealBase {
     this.loaded = true;
   }
 
+  /** Build dot indicator strip for the carousel */
+  _createDots(count, dotsY) {
+    const group = new THREE.Group();
+    group.position.set(0, dotsY, 0.001);
+    const DOT_SPACING = 0.022;
+    const DOT_RADIUS = 0.007;
+
+    for (let i = 0; i < count; i++) {
+      const geo = new THREE.CircleGeometry(DOT_RADIUS, 16);
+      const mat = new THREE.MeshBasicMaterial({
+        color: i === 0 ? 0xe2b657 : 0x555555,
+        transparent: true,
+      });
+      const dot = new THREE.Mesh(geo, mat);
+      dot.position.x = (i - (count - 1) / 2) * DOT_SPACING;
+      group.add(dot);
+      this._dotMeshes.push(dot);
+    }
+
+    return group;
+  }
+
+  /** Advance the carousel by +1 (next) or -1 (prev) */
+  navigate(dir) {
+    if (!this._carousel) return;
+    const count = this.panelMeshes.length;
+    const newIndex = Math.max(0, Math.min(count - 1, this._carousel.index + dir));
+    if (newIndex === this._carousel.index) return;
+    this._carousel.index = newIndex;
+    if (this._carousel.curveRadius > 0) {
+      // Rotate arc wrapper by +θ to bring panel at angle θ to the front.
+      // Proof: panel i sits at (R·sin θ, 0, -R·cos θ) in arcWrapper local space;
+      // Y-rotation by +θ maps that to (0, 0, -R) = the front slot. ✓
+      this._carousel.targetAngle = this._carousel.panelAngles[newIndex];
+    } else {
+      this._carousel.targetX = -newIndex * this._carouselSpacing;
+    }
+    this._dotMeshes.forEach((dot, i) => {
+      dot.material.color.set(i === newIndex ? 0xe2b657 : 0x555555);
+    });
+  }
+
   async _createPanel(panelDef, pos) {
     const {
       src,
-      width = 0.3,
-      height = 0.2,
+      width,
+      height,
       caption,
       autoplay = true,
       loop = true,
@@ -128,9 +249,12 @@ export default class GalleryReveal extends RevealBase {
     const isVideo = /\.(mp4|webm|mov)$/i.test(src);
 
     let material;
+    let finalWidth, finalHeight;
 
     if (isVideo) {
       material = this._createVideoMaterial(src, autoplay, loop);
+      finalWidth = width ?? 0.3;
+      finalHeight = height ?? 0.2;
     } else {
       const texture = await this._loadTexture(src);
       material = new THREE.MeshBasicMaterial({
@@ -138,22 +262,37 @@ export default class GalleryReveal extends RevealBase {
         transparent: true,
         side: THREE.DoubleSide,
       });
+
+      const aspect = texture.image.width / texture.image.height;
+      if (width != null && height != null) {
+        finalWidth = width;
+        finalHeight = height;
+      } else if (width != null) {
+        finalWidth = width;
+        finalHeight = width / aspect;
+      } else if (height != null) {
+        finalHeight = height;
+        finalWidth = height * aspect;
+      } else {
+        finalWidth = 0.3;
+        finalHeight = 0.3 / aspect;
+      }
     }
 
     // Panel mesh
-    const geo = new THREE.PlaneGeometry(width, height);
+    const geo = new THREE.PlaneGeometry(finalWidth, finalHeight);
     const mesh = new THREE.Mesh(geo, material);
     mesh.position.set(pos.x, pos.y, pos.z);
     if (pos.rotY) mesh.rotation.y = pos.rotY;
 
     // Border frame
-    const frame = this._createFrame(width, height, borderWidth, borderColor);
+    const frame = this._createFrame(finalWidth, finalHeight, borderWidth, borderColor);
     mesh.add(frame);
 
     // Caption label below panel
     if (caption) {
-      const label = this._createCaption(caption, width);
-      label.position.set(0, -(height / 2 + 0.02), 0);
+      const label = this._createCaption(caption, finalWidth);
+      label.position.set(0, -(finalHeight / 2 + 0.02), 0);
       mesh.add(label);
     }
 
@@ -262,7 +401,18 @@ export default class GalleryReveal extends RevealBase {
   }
 
   onTick(dt) {
-    // VideoTexture auto-updates; nothing else needed for now
+    if (this._carousel && this._track) {
+      const speed = Math.min(1, 12 * dt);
+      if (this._carousel.curveRadius > 0 && this._arcWrapper) {
+        // Rotate the arc wrapper to bring the active panel forward
+        this._arcWrapper.rotation.y +=
+          (this._carousel.targetAngle - this._arcWrapper.rotation.y) * speed;
+      } else {
+        // Flat carousel: slide track along X
+        this._track.position.x +=
+          (this._carousel.targetX - this._track.position.x) * speed;
+      }
+    }
   }
 
   onDispose() {
@@ -274,5 +424,9 @@ export default class GalleryReveal extends RevealBase {
     }
     this.videoElements = [];
     this.panelMeshes = [];
+    this._dotMeshes = [];
+    this._track = null;
+    this._arcWrapper = null;
+    this._carousel = null;
   }
 }

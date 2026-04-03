@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/EmbodiedMemories-YoonJuChung_luminance.jpg",
+  "metadata": null,
+  "name": "EmbodiedMemories-YoonJuChung",
+  "type": "PLANAR",
+  "properties": {
+    "left": 92,
+    "top": 0,
+    "width": 617,
+    "height": 823,
+    "isRotated": false,
+    "originalWidth": 800,
+    "originalHeight": 823
+  },
+  "resources": {
+    "originalImage": "EmbodiedMemories-YoonJuChung_original.jpg",
+    "croppedImage": "EmbodiedMemories-YoonJuChung_cropped.jpg",
+    "thumbnailImage": "EmbodiedMemories-YoonJuChung_thumbnail.jpg",
+    "luminanceImage": "EmbodiedMemories-YoonJuChung_luminance.jpg"
+  },
+  "created": 1775165990258,
+  "updated": 1775165990258
+}

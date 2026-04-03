@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/BlackSwan-JieunSung_luminance.jpg",
+  "metadata": null,
+  "name": "BlackSwan-JieunSung",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 0,
+    "width": 1920,
+    "height": 2560,
+    "isRotated": false,
+    "originalWidth": 1920,
+    "originalHeight": 2560
+  },
+  "resources": {
+    "originalImage": "BlackSwan-JieunSung_original.jpg",
+    "croppedImage": "BlackSwan-JieunSung_cropped.jpg",
+    "thumbnailImage": "BlackSwan-JieunSung_thumbnail.jpg",
+    "luminanceImage": "BlackSwan-JieunSung_luminance.jpg"
+  },
+  "created": 1775165779251,
+  "updated": 1775165779251
+}

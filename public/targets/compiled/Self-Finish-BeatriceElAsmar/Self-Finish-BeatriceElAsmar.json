@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/Self-Finish-BeatriceElAsmar_luminance.jpg",
+  "metadata": null,
+  "name": "Self-Finish-BeatriceElAsmar",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 318,
+    "width": 963,
+    "height": 1284,
+    "isRotated": true,
+    "originalWidth": 963,
+    "originalHeight": 1920
+  },
+  "resources": {
+    "originalImage": "Self-Finish-BeatriceElAsmar_original.jpg",
+    "croppedImage": "Self-Finish-BeatriceElAsmar_cropped.jpg",
+    "thumbnailImage": "Self-Finish-BeatriceElAsmar_thumbnail.jpg",
+    "luminanceImage": "Self-Finish-BeatriceElAsmar_luminance.jpg"
+  },
+  "created": 1775211467046,
+  "updated": 1775211467046
+}

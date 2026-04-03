@@ -107,10 +107,10 @@ function handleDrag(x, y) {
   const totalDy = y - startY;
   const totalDist = Math.sqrt(totalDx * totalDx + totalDy * totalDy);
 
-  // Only allow rotation drag in free mode and past slop threshold
+  // Allow rotation drag past slop threshold — except carousel reveals use swipe navigation
   if (totalDist > TAP_SLOP) {
     const reveal = getActiveReveal();
-    if (reveal && reveal.mode === 'free' && reveal.root) {
+    if (reveal && reveal.root && !reveal._carousel) {
       reveal.root.rotation.y += dx * 0.005;
     }
   }
@@ -126,6 +126,12 @@ function endDown() {
 
   if (totalDist <= TAP_SLOP) {
     handleTap(lastX, lastY);
+  } else {
+    // Route horizontal swipe to carousel navigation
+    const reveal = getActiveReveal();
+    if (reveal && reveal._carousel && Math.abs(totalDx) > Math.abs(totalDy) * 1.2) {
+      reveal.navigate(totalDx < 0 ? 1 : -1);
+    }
   }
 }
 

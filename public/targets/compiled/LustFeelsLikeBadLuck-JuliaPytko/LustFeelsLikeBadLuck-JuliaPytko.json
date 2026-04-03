@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/LustFeelsLikeBadLuck-JuliaPytko_luminance.jpg",
+  "metadata": null,
+  "name": "LustFeelsLikeBadLuck-JuliaPytko",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 240,
+    "width": 1080,
+    "height": 1440,
+    "isRotated": true,
+    "originalWidth": 1080,
+    "originalHeight": 1920
+  },
+  "resources": {
+    "originalImage": "LustFeelsLikeBadLuck-JuliaPytko_original.jpg",
+    "croppedImage": "LustFeelsLikeBadLuck-JuliaPytko_cropped.jpg",
+    "thumbnailImage": "LustFeelsLikeBadLuck-JuliaPytko_thumbnail.jpg",
+    "luminanceImage": "LustFeelsLikeBadLuck-JuliaPytko_luminance.jpg"
+  },
+  "created": 1775211171543,
+  "updated": 1775211171543
+}

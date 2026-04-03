@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/Nailed-GenevieveCarr_luminance.jpg",
+  "metadata": null,
+  "name": "Nailed-GenevieveCarr",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 103,
+    "width": 1920,
+    "height": 2560,
+    "isRotated": false,
+    "originalWidth": 1920,
+    "originalHeight": 2766
+  },
+  "resources": {
+    "originalImage": "Nailed-GenevieveCarr_original.jpg",
+    "croppedImage": "Nailed-GenevieveCarr_cropped.jpg",
+    "thumbnailImage": "Nailed-GenevieveCarr_thumbnail.jpg",
+    "luminanceImage": "Nailed-GenevieveCarr_luminance.jpg"
+  },
+  "created": 1775211323561,
+  "updated": 1775211323561
+}

@@ -18,6 +18,12 @@ export function easeOutQuart(t) {
   return 1 - Math.pow(1 - t, 4);
 }
 
+export function easeOutBack(t) {
+  const c1 = 1.70158;
+  const c3 = c1 + 1;
+  return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+}
+
 export function smoothstep(edge0, edge1, x) {
   const t = clamp((x - edge0) / (edge1 - edge0), 0, 1);
   return t * t * (3 - 2 * t);

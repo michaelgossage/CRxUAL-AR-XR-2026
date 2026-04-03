@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/LetMeEatCake-SuzannaTeal_luminance.jpg",
+  "metadata": null,
+  "name": "LetMeEatCake-SuzannaTeal",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 114,
+    "width": 1365,
+    "height": 1820,
+    "isRotated": false,
+    "originalWidth": 1365,
+    "originalHeight": 2048
+  },
+  "resources": {
+    "originalImage": "LetMeEatCake-SuzannaTeal_original.jpg",
+    "croppedImage": "LetMeEatCake-SuzannaTeal_cropped.jpg",
+    "thumbnailImage": "LetMeEatCake-SuzannaTeal_thumbnail.jpg",
+    "luminanceImage": "LetMeEatCake-SuzannaTeal_luminance.jpg"
+  },
+  "created": 1775211104939,
+  "updated": 1775211104939
+}

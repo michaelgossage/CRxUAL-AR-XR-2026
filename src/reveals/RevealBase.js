@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {
-  lerp, easeOutCubic, easeOutQuart, dampVector3, dampQuaternion,
+  lerp, easeOutCubic, easeOutBack, easeOutQuart, dampVector3, dampQuaternion,
   captureWorldTransform, applyWorldTransform, disposeObject,
 } from '../utils.js';
 
@@ -63,7 +63,7 @@ export default class RevealBase {
 
     if (this.state === ENTERING) {
       const t = Math.min(this.stateTime / ENTER_DURATION, 1);
-      const eased = easeOutCubic(t);
+      const eased = easeOutBack(t);
       this.root.scale.setScalar(lerp(0.001, 1, eased));
       this._setOpacity(eased);
       if (t >= 1) {
@@ -129,25 +129,28 @@ export default class RevealBase {
     }
 
     if (this.mode === FREE) {
-      // Stay in scene space during interpolation, then reparent when close
-      this._targetPosition.set(0, 0, 0);
-      this._targetQuaternion.identity();
-
-      // For now, reparent immediately and interpolate in local space
       const worldTransform = captureWorldTransform(this.root);
       this.scene.remove(this.root);
       this.anchorGroup.add(this.root);
 
-      // Convert world position to anchor-local position
-      const anchorWorldInverse = new THREE.Matrix4().copy(this.anchorGroup.matrixWorld).invert();
-      const localPos = worldTransform.position.applyMatrix4(anchorWorldInverse);
+      // Use anchor's local position/quaternion directly — matrixWorld is stale until
+      // the next render pass, but local = world since anchor is a direct scene child.
+      const anchorPos = this.anchorGroup.position;
+      const anchorQuat = this.anchorGroup.quaternion;
+
+      // Convert world position to anchor-local (anchor has no scale)
+      const localPos = worldTransform.position.clone()
+        .sub(anchorPos)
+        .applyQuaternion(anchorQuat.clone().invert());
       this.root.position.copy(localPos);
 
-      // Convert world quaternion to anchor-local quaternion
-      const anchorWorldQuat = new THREE.Quaternion();
-      this.anchorGroup.matrixWorld.decompose(new THREE.Vector3(), anchorWorldQuat, new THREE.Vector3());
-      const localQuat = anchorWorldQuat.invert().multiply(worldTransform.quaternion);
+      // Convert world quaternion to anchor-local, preserve user's spin
+      const localQuat = anchorQuat.clone().invert().multiply(worldTransform.quaternion);
       this.root.quaternion.copy(localQuat);
+
+      // Damp both position and rotation back to anchor-aligned defaults
+      this._targetPosition.set(0, 0, 0);
+      this._targetQuaternion.identity();
 
       this.mode = TRACKED;
       this._reacquiring = true;

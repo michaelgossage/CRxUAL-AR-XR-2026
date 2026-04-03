@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/SynestheticSkin-JianingDing_luminance.png",
+  "metadata": null,
+  "name": "SynestheticSkin-JianingDing",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 53,
+    "width": 1361,
+    "height": 1815,
+    "isRotated": true,
+    "originalWidth": 1361,
+    "originalHeight": 1920
+  },
+  "resources": {
+    "originalImage": "SynestheticSkin-JianingDing_original.png",
+    "croppedImage": "SynestheticSkin-JianingDing_cropped.png",
+    "thumbnailImage": "SynestheticSkin-JianingDing_thumbnail.png",
+    "luminanceImage": "SynestheticSkin-JianingDing_luminance.png"
+  },
+  "created": 1775211627946,
+  "updated": 1775211627946
+}

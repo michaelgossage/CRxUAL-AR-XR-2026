@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/WhimsyThroughTheWindow-SarahAbdi_luminance.jpg",
+  "metadata": null,
+  "name": "WhimsyThroughTheWindow-SarahAbdi",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 0,
+    "width": 1920,
+    "height": 2560,
+    "isRotated": false,
+    "originalWidth": 1920,
+    "originalHeight": 2560
+  },
+  "resources": {
+    "originalImage": "WhimsyThroughTheWindow-SarahAbdi_original.jpg",
+    "croppedImage": "WhimsyThroughTheWindow-SarahAbdi_cropped.jpg",
+    "thumbnailImage": "WhimsyThroughTheWindow-SarahAbdi_thumbnail.jpg",
+    "luminanceImage": "WhimsyThroughTheWindow-SarahAbdi_luminance.jpg"
+  },
+  "created": 1775211675478,
+  "updated": 1775211675478
+}
