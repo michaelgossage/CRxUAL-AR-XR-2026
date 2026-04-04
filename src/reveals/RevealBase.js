@@ -18,9 +18,11 @@ const FREE = 'free';
 const ENTER_DURATION = 0.8;
 const EXIT_DURATION = 0.4;
 const REACQUIRE_DAMPING = 8; // exponential damping factor
+const OVERLAY_FILL_DELAY = 0.2;    // seconds before overlay starts fading in
+const OVERLAY_FILL_DURATION = 2.0; // seconds to reach full opacity
 
 export default class RevealBase {
-  constructor({ scene, camera, anchorGroup, config }) {
+  constructor({ scene, camera, anchorGroup, config, physicalWidth }) {
     this.scene = scene;
     this.camera = camera;
     this.anchorGroup = anchorGroup;
@@ -39,6 +41,12 @@ export default class RevealBase {
     this._reacquiring = false;
     this._targetPosition = new THREE.Vector3();
     this._targetQuaternion = new THREE.Quaternion();
+
+    // Tracking image overlay
+    this._physicalWidth = physicalWidth || null;
+    this._overlayPlane = null;
+    this._overlayTime = 0;
+    this._overlayPeakOpacity = 0;
   }
 
   enter() {
@@ -48,12 +56,14 @@ export default class RevealBase {
     this.root.visible = true;
     this.root.scale.setScalar(0.001);
     this._setOpacity(0);
+    this._overlayTime = 0;
   }
 
   exit() {
     if (this.state === DISPOSED || this.state === EXITING) return;
     this.state = EXITING;
     this.stateTime = 0;
+    this._overlayPeakOpacity = this._overlayPlane ? this._overlayPlane.material.opacity : 0;
   }
 
   tick(dt) {
@@ -66,9 +76,14 @@ export default class RevealBase {
       const eased = easeOutBack(t);
       this.root.scale.setScalar(lerp(0.001, 1, eased));
       this._setOpacity(eased);
+      this._tickOverlay(dt);
       if (t >= 1) {
         this.state = ACTIVE;
         this.stateTime = 0;
+      }
+    } else if (this.state === ACTIVE) {
+      if (this._overlayPlane && this._overlayPlane.material.opacity < 1) {
+        this._tickOverlay(dt);
       }
     }
 
@@ -77,6 +92,9 @@ export default class RevealBase {
       const eased = easeOutQuart(t);
       this.root.scale.setScalar(lerp(1, 0.8, eased));
       this._setOpacity(1 - eased);
+      if (this._overlayPlane) {
+        this._overlayPlane.material.opacity = this._overlayPeakOpacity * (1 - eased);
+      }
       if (t >= 1) {
         this.dispose();
         return;
@@ -159,6 +177,7 @@ export default class RevealBase {
 
   _setOpacity(value) {
     this.root.traverse((child) => {
+      if (child.userData.isOverlay) return;
       if (child.material) {
         const mats = Array.isArray(child.material) ? child.material : [child.material];
         for (const mat of mats) {
@@ -167,6 +186,48 @@ export default class RevealBase {
           mat.needsUpdate = true;
         }
       }
+    });
+  }
+
+  _tickOverlay(dt) {
+    if (!this._overlayPlane) return;
+    this._overlayTime += dt;
+    const ot = Math.max(0, Math.min(
+      (this._overlayTime - OVERLAY_FILL_DELAY) / OVERLAY_FILL_DURATION, 1,
+    ));
+    this._overlayPlane.material.opacity = ot;
+  }
+
+  async _initOverlay() {
+    if (!this.config.showOverlay) return;
+    if (!this._physicalWidth || !this.config.targetData) return;
+    const imageUrl = this.config.targetData.replace('.json', '_original.jpg');
+
+    return new Promise((resolve) => {
+      new THREE.TextureLoader().load(
+        imageUrl,
+        (texture) => {
+          texture.colorSpace = THREE.SRGBColorSpace;
+          const aspect = texture.image.naturalWidth / texture.image.naturalHeight;
+          const w = this._physicalWidth;
+          const h = w / aspect;
+          const geo = new THREE.PlaneGeometry(w, h);
+          const mat = new THREE.MeshBasicMaterial({
+            map: texture,
+            transparent: true,
+            opacity: 0,
+            depthWrite: false,
+          });
+          const plane = new THREE.Mesh(geo, mat);
+          plane.position.z = 0.001;
+          plane.userData.isOverlay = true;
+          this.root.add(plane);
+          this._overlayPlane = plane;
+          resolve();
+        },
+        undefined,
+        () => resolve(),
+      );
     });
   }
 

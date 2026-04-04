@@ -103,6 +103,7 @@ export default class ArtworkReveal extends RevealBase {
     this.root.add(model);
     this.model = model;
 
+    await this._initOverlay();
     this.loaded = true;
   }
 

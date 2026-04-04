@@ -18,14 +18,14 @@ const REVEAL_TYPES = {
   gallery: GalleryReveal,
 };
 
-export default function createReveal({ scene, camera, anchorGroup, config }) {
+export default function createReveal({ scene, camera, anchorGroup, config, physicalWidth }) {
   const type = config.type || 'model';
   const RevealClass = REVEAL_TYPES[type];
 
   if (!RevealClass) {
     console.error(`[Reveal] Unknown type "${type}", falling back to model`);
-    return new ArtworkReveal({ scene, camera, anchorGroup, config });
+    return new ArtworkReveal({ scene, camera, anchorGroup, config, physicalWidth });
   }
 
-  return new RevealClass({ scene, camera, anchorGroup, config });
+  return new RevealClass({ scene, camera, anchorGroup, config, physicalWidth });
 }

@@ -31,7 +31,7 @@ export function getTargetNames() {
 
 // Called by scene pipeline on imagefound
 export async function onImageFound(detail) {
-  const { name, position, rotation } = detail;
+  const { name, position, rotation, scale } = detail;
   console.log(`[AR] onImageFound name="${name}", known targets: [${[...artworkMap.keys()].join(', ')}]`);
   const config = artworkMap.get(name);
   if (!config) {
@@ -85,6 +85,7 @@ export async function onImageFound(detail) {
     camera: cameraRef,
     anchorGroup: anchor,
     config,
+    physicalWidth: scale,
   });
 
   activeReveal = reveal;

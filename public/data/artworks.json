@@ -22,7 +22,8 @@
     "description": "gods",
     "model": "./data/BeNotAfraid-RysiaAnnaKaczmar/BeNotAfraid_Artwork3D.glb",
     "scale": 2,
-    "offset": [0, 1, 0]
+    "offset": [0, 2, 0],
+    "showOverlay": true
   },
   {
     "id": "Birdcage",
