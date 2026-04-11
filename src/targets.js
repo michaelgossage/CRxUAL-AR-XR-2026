@@ -11,12 +11,29 @@ let sceneRef = null;
 let cameraRef = null;
 let anchorGroups = new Map(); // targetName → THREE.Group
 
+function resolveUrl(path) {
+  if (path && path.startsWith('./')) {
+    return import.meta.env.BASE_URL + path.slice(2);
+  }
+  return path;
+}
+
 export async function loadArtworkData() {
-  const res = await fetch('./data/artworks.json');
+  const res = await fetch(import.meta.env.BASE_URL + 'data/artworks.json');
   artworks = await res.json();
+
+  // Normalize all relative paths to absolute using the deployment base URL
   for (const aw of artworks) {
+    if (aw.targetData) aw.targetData = resolveUrl(aw.targetData);
+    if (aw.model) aw.model = resolveUrl(aw.model);
+    if (aw.panels) {
+      for (const p of aw.panels) {
+        if (p.src) p.src = resolveUrl(p.src);
+      }
+    }
     artworkMap.set(aw.targetName, aw);
   }
+
   return artworks;
 }
 
