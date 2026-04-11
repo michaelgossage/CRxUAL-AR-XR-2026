@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/Dehumanized-ChiAnChou_luminance.jpg",
+  "metadata": null,
+  "name": "Dehumanized-ChiAnChou",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 72,
+    "width": 853,
+    "height": 1137,
+    "isRotated": true,
+    "originalWidth": 853,
+    "originalHeight": 1280
+  },
+  "resources": {
+    "originalImage": "Dehumanized-ChiAnChou_original.jpg",
+    "croppedImage": "Dehumanized-ChiAnChou_cropped.jpg",
+    "thumbnailImage": "Dehumanized-ChiAnChou_thumbnail.jpg",
+    "luminanceImage": "Dehumanized-ChiAnChou_luminance.jpg"
+  },
+  "created": 1775165878481,
+  "updated": 1775165878481
+}

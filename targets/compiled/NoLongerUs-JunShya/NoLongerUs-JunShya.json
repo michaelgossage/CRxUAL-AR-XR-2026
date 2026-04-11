@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/NoLongerUs-JunShya_luminance.jpg",
+  "metadata": null,
+  "name": "NoLongerUs-JunShya",
+  "type": "PLANAR",
+  "properties": {
+    "left": 240,
+    "top": 0,
+    "width": 1440,
+    "height": 1920,
+    "isRotated": true,
+    "originalWidth": 1920,
+    "originalHeight": 1920
+  },
+  "resources": {
+    "originalImage": "NoLongerUs-JunShya_original.jpg",
+    "croppedImage": "NoLongerUs-JunShya_cropped.jpg",
+    "thumbnailImage": "NoLongerUs-JunShya_thumbnail.jpg",
+    "luminanceImage": "NoLongerUs-JunShya_luminance.jpg"
+  },
+  "created": 1775211408346,
+  "updated": 1775211408346
+}

@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/Birdcage-JichuZhang_luminance.jpg",
+  "metadata": null,
+  "name": "Birdcage-JichuZhang",
+  "type": "PLANAR",
+  "properties": {
+    "left": 264,
+    "top": 0,
+    "width": 2220,
+    "height": 2960,
+    "isRotated": true,
+    "originalWidth": 2748,
+    "originalHeight": 2960
+  },
+  "resources": {
+    "originalImage": "Birdcage-JichuZhang_original.jpg",
+    "croppedImage": "Birdcage-JichuZhang_cropped.jpg",
+    "thumbnailImage": "Birdcage-JichuZhang_thumbnail.jpg",
+    "luminanceImage": "Birdcage-JichuZhang_luminance.jpg"
+  },
+  "created": 1775165597941,
+  "updated": 1775165597941
+}

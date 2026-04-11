@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>Chancery Rosewood — AR Experience</title>
+
+  <!-- 8th Wall Engine (self-hosted) -->
+  <script async src="/CRxUAL-AR-XR-2026/xr/xr.js" data-preload-chunks="slam"></script>
+  <script src="https://cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+  <script src="https://cdn.8thwall.com/web/coaching-overlay/coaching-overlay.js"></script>
+  <script type="module" crossorigin src="/CRxUAL-AR-XR-2026/assets/index-ChjSsqUN.js"></script>
+  <link rel="modulepreload" crossorigin href="/CRxUAL-AR-XR-2026/assets/three-uhUtIBjA.js">
+  <link rel="stylesheet" crossorigin href="/CRxUAL-AR-XR-2026/assets/index-wysCUew7.css">
+</head>
+<body>
+  <!-- AR Canvas Container -->
+  <div id="ar-container">
+    <canvas id="ar-canvas"></canvas>
+  </div>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-content">
+      <h1 class="loading-title">Chancery Rosewood</h1>
+      <p class="loading-subtitle">AR Experience</p>
+      <div class="loading-bar-track">
+        <div class="loading-bar-fill" id="loading-bar"></div>
+      </div>
+      <p class="loading-status" id="loading-status">Initializing…</p>
+      <button class="start-button" id="start-button" style="display:none;">Start AR</button>
+    </div>
+  </div>
+
+  <!-- Scanning Hint -->
+  <div id="scanning-hint" style="display:none;">
+    <div class="scan-indicator">
+      <div class="scan-corners"></div>
+    </div>
+    <p class="scan-text">Point at an artwork to begin</p>
+  </div>
+
+  <!-- Info Panel Overlay (HUD) -->
+   <!--
+  <div id="hud" style="display:none;">
+    <div class="hud-title" id="hud-title"></div>
+  </div>-->
+
+  <!-- Artwork Info Panel (lower third) -->
+  <div id="info-panel" class="info-panel hidden" style="display:none;">
+    <button id="info-panel-close" class="info-panel-close" aria-label="Close">&times;</button>
+    <h3 class="info-panel-title" id="info-panel-title"></h3>
+    <p class="info-panel-artist" id="info-panel-artist"></p>
+    <p class="info-panel-description" id="info-panel-description"></p>
+  </div>
+
+  <!-- Error Screen -->
+  <div id="error-screen" style="display:none;">
+    <div class="error-content">
+      <h2 class="error-title" id="error-title">Something went wrong</h2>
+      <p class="error-message" id="error-message"></p>
+      <button class="error-action" id="error-action" style="display:none;">Retry</button>
+    </div>
+  </div>
+
+  <!-- Desktop QR Redirect -->
+  <div id="desktop-screen" style="display:none;">
+    <div class="desktop-content">
+      <h1 class="loading-title">Chancery Rosewood</h1>
+      <p class="loading-subtitle">AR Experience</p>
+      <p class="desktop-message">This experience requires a mobile device with a camera.</p>
+      <div id="qr-placeholder" class="qr-placeholder">
+        <p>Open this URL on your phone:</p>
+        <p class="url-display" id="url-display"></p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

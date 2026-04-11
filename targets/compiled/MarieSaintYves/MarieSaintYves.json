@@ -1,0 +1,24 @@
+{
+  "imagePath": "image-targets/MarieSaintYves_luminance.jpg",
+  "metadata": null,
+  "name": "MarieSaintYves",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 0,
+    "width": 1440,
+    "height": 1920,
+    "isRotated": true,
+    "originalWidth": 1440,
+    "originalHeight": 1920,
+    "physicalWidthInMeters": 0.4
+  },
+  "resources": {
+    "originalImage": "MarieSaintYves_original.jpg",
+    "croppedImage": "MarieSaintYves_cropped.jpg",
+    "thumbnailImage": "MarieSaintYves_thumbnail.jpg",
+    "luminanceImage": "MarieSaintYves_luminance.jpg"
+  },
+  "created": 1773265878373,
+  "updated": 1773265878373
+}

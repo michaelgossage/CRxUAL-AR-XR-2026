@@ -1,0 +1,285 @@
+[
+
+  {
+    "id": "artwork-01",
+    "targetName": "art-01",
+    "targetData": "./targets/compiled/artTest/art-01.json",
+    "title": "test V3",
+    "artist": "test",
+    "year": "2024",
+    "description": "Primary architectural model of the Chancery Rosewood collection, featuring detailed structural elements and material studies.",
+    "model": "./models/art3d-01.glb",
+    "scale": 0.5,
+    "offset": [0, 0.1, 0]
+  },
+  {
+    "id": "BeNotAfraid",
+    "targetName": "BeNotAfraid-RysiaAnnaKaczmar",
+    "targetData": "./targets/compiled/BeNotAfraid-RysiaAnnaKaczmar/BeNotAfraid-RysiaAnnaKaczmar.json",
+    "title": "Be Not Afraid",
+    "artist": "Rysia Anna Kaczmar",
+    "year": "2025",
+    "description": "gods",
+    "model": "./data/BeNotAfraid-RysiaAnnaKaczmar/BeNotAfraid_Artwork3D.glb",
+    "scale": 2,
+    "offset": [0, 2, 0],
+    "showOverlay": true
+  },
+  {
+    "id": "Birdcage",
+    "targetName": "Birdcage-JichuZhang",
+    "targetData": "./targets/compiled/Birdcage-JichuZhang/Birdcage-JichuZhang.json",
+    "title": "Birdcage",
+    "artist": "Jichu Zhang",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/Birdcage-JichuZhang/IMG_1571-1.jpg", "width": 1.0, "height": 1.0, "caption": "A"}
+    ],
+    "layout": "arc",
+    "scale": 2,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "BlackSwan",
+    "targetName": "BlackSwan-JieunSung",
+    "targetData": "./targets/compiled/BlackSwan-JieunSung/BlackSwan-JieunSung.json",
+    "title": "Black Swan",
+    "artist": "Jieun Sung",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./targets/compiled/BlackSwan-JieunSung/BlackSwan-JieunSung_original.jpg", "width": 0.3, "caption": "A"}
+    ],
+    "layout": "arc",
+    "scale": 2,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "Dehumanized",
+    "targetName": "Dehumanized-ChiAnChou",
+    "targetData": "./targets/compiled/Dehumanized-ChiAnChou/Dehumanized-ChiAnChou.json",
+    "title": "Dehumanized",
+    "artist": "Chi An Chou",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_4790-Large.jpg", "width": 0.3, "caption": "A"},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_4797-Large.jpg", "width": 0.3, "caption": "A"},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7018-Large.jpg", "width": 0.3, "caption": "A"},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7023-Large.jpg", "width": 0.3, "caption": "A"},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7046-Large.jpg", "width": 0.3, "caption": "A"},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7074-Large.jpg", "width": 0.3, "caption": "A"},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7099-Large.jpg", "width": 0.3, "caption": "A"},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7271-Large.jpg", "width": 0.3, "caption": "A"}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "EMBODIED",
+    "targetName": "EMBODIED-VeepraMishra",
+    "targetData": "./targets/compiled/EMBODIED-VeepraMishra/EMBODIED-VeepraMishra.json",
+    "title": "EMBODIED",
+    "artist": "Veepra Mishra",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/EMBODIED-VeepraMishra/Embodied_1.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EMBODIED-VeepraMishra/Embodied_2.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EMBODIED-VeepraMishra/Embodied_3.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EMBODIED-VeepraMishra/Embodied_4.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EMBODIED-VeepraMishra/Embodied_5.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EMBODIED-VeepraMishra/Embodied_6.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EMBODIED-VeepraMishra/Embodied_7.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EMBODIED-VeepraMishra/Embodied_8.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "EmbodiedMemories",
+    "targetName": "EmbodiedMemories-YoonJuChung",
+    "targetData": "./targets/compiled/EmbodiedMemories-YoonJuChung/EmbodiedMemories-YoonJuChung.json",
+    "title": "Embodied Memories",
+    "artist": "Yoon Ju Chung",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_1.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_2.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_3.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_4.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_5.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_6.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "FauxFlora",
+    "targetName": "FauxFlora-JustinaAlexandroff",
+    "targetData": "./targets/compiled/FauxFlora-JustinaAlexandroff/FauxFlora-JustinaAlexandroff.json",
+    "title": "Faux Flora",
+    "artist": "Justina Alexandroff",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_1.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_2.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_3.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_4.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_5.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_6.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "LetMeEatCake",
+    "targetName": "LetMeEatCake-SuzannaTeal",
+    "targetData": "./targets/compiled/LetMeEatCake-SuzannaTeal/LetMeEatCake-SuzannaTeal.json",
+    "title": "Let Me Eat Cake",
+    "artist": "Suzanna Teal",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_1.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_2.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_3.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_4.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_5.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "NoLongerUs",
+    "targetName": "NoLongerUs-JunShya",
+    "targetData": "./targets/compiled/NoLongerUs-JunShya/NoLongerUs-JunShya.json",
+    "title": "No Longer Us",
+    "artist": "Jun Shya",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/NoLongerUs-JunShya/NoLongerUs.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "grid",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "Self Finish",
+    "targetName": "Self-Finish-BeatriceElAsmar",
+    "targetData": "./targets/compiled/Self-Finish-BeatriceElAsmar/Self-Finish-BeatriceElAsmar.json",
+    "title": "Self Finish",
+    "artist": "Beatrice El Asmar",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_1.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_2.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_3.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_4.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_5.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "grid",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "Unrendered",
+    "targetName": "Unrendered-Marie-LisetteCropp",
+    "targetData": "./targets/compiled/Unrendered-Marie-LisetteCropp/Unrendered-Marie-LisetteCropp.json",
+    "title": "Unrendered",
+    "artist": "Marie-Lisette Cropp",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_1.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_2.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_3.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_4.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_5.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_6.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_7.jpg", "width": 0.3, "caption": ""},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_8.jpg", "width": 0.3, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "scale": 3,
+    "curve": 0.5,
+    "offset": [0, 1, 0]
+  },
+
+  {
+    "id": "MarieSaintYves",
+    "targetName": "MarieSaintYves",
+    "targetData": "./targets/compiled/MarieSaintYves/MarieSaintYves.json",
+    "title": "Experiment n58-2 Position in space",
+    "artist": "MarieSaintYves",
+    "year": "2024",
+    "description": "Primary architectural model of the Chancery Rosewood collection, featuring detailed structural elements and material studies.",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.02.png", "width": 0.3, "height": 0.2, "caption": "A"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.07.png", "width": 0.3, "height": 0.2, "caption": "B"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.11.png", "width": 0.3, "height": 0.2, "caption": "C"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.17.png", "width": 0.3, "height": 0.2, "caption": "D"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.21.png", "width": 0.3, "height": 0.2, "caption": "E"},
+      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.26.png", "width": 0.3, "height": 0.2, "caption": "F"}
+    ],
+    "layout": "arc",
+    "scale": 2,
+    "offset": [0, 1, 0]
+  },
+  {
+    "id": "YiyuChoeyChen",
+    "targetName": "tar_YiyuChoeyChen",
+    "targetData": "./targets/compiled/YiyuChoeyChen/tar_YiyuChoeyChen.json",
+    "title": "In Transitional Space",
+    "artist": "Yiyu Choey Chen",
+    "year": "2024",
+    "description": "In the Transitional Space, explore the fragile boundary between reality and imagination, where trauma does not need to be spoken but can be sensed and held. Rooted in the idea of Winnicott’s “transitional space,” the project approaches intergenerational wounds not through direct depiction, but through symbolic language that allows for containment, reflection, and transformation.",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.47.48.png", "width": 0.3, "height": 0.2, "caption": "A"},
+      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.47.57.png", "width": 0.3, "height": 0.2, "caption": "B"},
+      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.48.04.png", "width": 0.3, "height": 0.2, "caption": "C"},
+      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.48.12.png", "width": 0.3, "height": 0.2, "caption": "D"}
+    ],
+    "layout": "arc",
+    "scale": 2,
+    "offset": [0, 1, 0]
+  }
+
+]

@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/FauxFlora-JustinaAlexandroff_luminance.jpg",
+  "metadata": null,
+  "name": "FauxFlora-JustinaAlexandroff",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 33,
+    "width": 800,
+    "height": 1067,
+    "isRotated": false,
+    "originalWidth": 800,
+    "originalHeight": 1132
+  },
+  "resources": {
+    "originalImage": "FauxFlora-JustinaAlexandroff_original.jpg",
+    "croppedImage": "FauxFlora-JustinaAlexandroff_cropped.jpg",
+    "thumbnailImage": "FauxFlora-JustinaAlexandroff_thumbnail.jpg",
+    "luminanceImage": "FauxFlora-JustinaAlexandroff_luminance.jpg"
+  },
+  "created": 1775166045415,
+  "updated": 1775166045415
+}

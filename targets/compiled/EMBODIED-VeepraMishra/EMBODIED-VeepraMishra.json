@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/EMBODIED-VeepraMishra_luminance.jpg",
+  "metadata": null,
+  "name": "EMBODIED-VeepraMishra",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 0,
+    "width": 3000,
+    "height": 4000,
+    "isRotated": false,
+    "originalWidth": 3000,
+    "originalHeight": 4000
+  },
+  "resources": {
+    "originalImage": "EMBODIED-VeepraMishra_original.jpg",
+    "croppedImage": "EMBODIED-VeepraMishra_cropped.jpg",
+    "thumbnailImage": "EMBODIED-VeepraMishra_thumbnail.jpg",
+    "luminanceImage": "EMBODIED-VeepraMishra_luminance.jpg"
+  },
+  "created": 1775165914920,
+  "updated": 1775165914920
+}
