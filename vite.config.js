@@ -3,7 +3,7 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 
 export default defineConfig({
   plugins: [basicSsl()],
-  base: './',
+  base: '/CRxUAL-AR-XR-2026/',
   server: {
     https: true,
     host: true,
