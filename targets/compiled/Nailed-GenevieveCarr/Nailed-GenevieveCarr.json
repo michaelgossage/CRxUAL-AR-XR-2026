@@ -3,6 +3,7 @@
   "metadata": null,
   "name": "Nailed-GenevieveCarr",
   "type": "PLANAR",
+  "physicalWidth": 0.15,
   "properties": {
     "left": 0,
     "top": 103,

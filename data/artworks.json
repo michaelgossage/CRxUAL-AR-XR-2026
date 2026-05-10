@@ -296,15 +296,15 @@
     "type": "model-carousel",
     "autoSpin": true,
     "spinSpeed": 0.2,
-    "radius": 1.2,
-    "offset": [0, 0.2, 0],
+    "radius": 0.6,
+    "offset": [0, 1.0, 0],
     "items": [
-      { "model": "./data/Nailed_Genevieve Carr/5Hole_Decimate.glb",      "scale": 0.1 },
-      { "model": "./data/Nailed_Genevieve Carr/Bone_Decimate.glb",        "scale": 0.1 },
-      { "model": "./data/Nailed_Genevieve Carr/Hmmnotsure_Decimate.glb",  "scale": 0.1 },
-      { "model": "./data/Nailed_Genevieve Carr/PointBall_Decimate.glb",   "scale": 0.1 },
-      { "model": "./data/Nailed_Genevieve Carr/TroPhobia_Decimate.glb",   "scale": 0.1 },
-      { "model": "./data/Nailed_Genevieve Carr/lotsofholes_Decimate.glb", "scale": 0.1 }
+      { "model": "./data/Nailed_Genevieve Carr/5Hole_Decimate.glb",      "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/Bone_Decimate.glb",        "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/Hmmnotsure_Decimate.glb",  "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/PointBall_Decimate.glb",   "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/TroPhobia_Decimate.glb",   "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/lotsofholes_Decimate.glb", "scale": 0.06 }
     ]
   }
 
