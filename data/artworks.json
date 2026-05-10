@@ -12,6 +12,7 @@
     "scale": 0.5,
     "offset": [0, 0.1, 0]
   },
+  
   {
     "id": "BeNotAfraid",
     "targetName": "BeNotAfraid-RysiaAnnaKaczmar",
@@ -280,6 +281,31 @@
     "layout": "arc",
     "scale": 2,
     "offset": [0, 1, 0]
+  },
+
+
+
+  {
+    "id": "Nailed",
+    "targetName": "Nailed-GenevieveCarr",
+    "targetData": "./targets/compiled/Nailed-GenevieveCarr/Nailed-GenevieveCarr.json",
+    "title": "Nailed",
+    "artist": "Genevieve Carr",
+    "year": "2025",
+    "description": "Auto-rotating showcase. Drag to spin the carousel.",
+    "type": "model-carousel",
+    "autoSpin": true,
+    "spinSpeed": 0.2,
+    "radius": 1.2,
+    "offset": [0, 0.2, 0],
+    "items": [
+      { "model": "./data/Nailed_Genevieve Carr/5Hole_Decimate.glb",      "scale": 0.1 },
+      { "model": "./data/Nailed_Genevieve Carr/Bone_Decimate.glb",        "scale": 0.1 },
+      { "model": "./data/Nailed_Genevieve Carr/Hmmnotsure_Decimate.glb",  "scale": 0.1 },
+      { "model": "./data/Nailed_Genevieve Carr/PointBall_Decimate.glb",   "scale": 0.1 },
+      { "model": "./data/Nailed_Genevieve Carr/TroPhobia_Decimate.glb",   "scale": 0.1 },
+      { "model": "./data/Nailed_Genevieve Carr/lotsofholes_Decimate.glb", "scale": 0.1 }
+    ]
   }
 
 ]
