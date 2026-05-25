@@ -19,6 +19,9 @@ export function initUI() {
   elements.infoPanelArtist = document.getElementById('info-panel-artist');
   elements.infoPanelDescription = document.getElementById('info-panel-description');
   elements.infoPanelClose = document.getElementById('info-panel-close');
+  elements.infoPanelNav = document.getElementById('info-panel-nav');
+  elements.infoPanelPrev = document.getElementById('info-panel-prev');
+  elements.infoPanelNext = document.getElementById('info-panel-next');
   elements.errorScreen = document.getElementById('error-screen');
   elements.errorTitle = document.getElementById('error-title');
   elements.errorMessage = document.getElementById('error-message');
@@ -125,7 +128,7 @@ export function showDesktopRedirect() {
   }
 }
 
-export function showInfoPanel({ title, artist, year, description }, onClose) {
+export function showInfoPanel({ title, artist, year, description }, onClose, onPrev, onNext) {
   if (!elements.infoPanel) return;
   if (infoPanelHideTimer) {
     clearTimeout(infoPanelHideTimer);
@@ -136,6 +139,20 @@ export function showInfoPanel({ title, artist, year, description }, onClose) {
   elements.infoPanelArtist.textContent = artistText;
   elements.infoPanelDescription.textContent = description || '';
   infoPanelCloseCallback = onClose || null;
+
+  // Show navigation arrows only when callbacks are provided
+  if (elements.infoPanelNav) {
+    if (onPrev && onNext) {
+      elements.infoPanelPrev.onclick = onPrev;
+      elements.infoPanelNext.onclick = onNext;
+      elements.infoPanelNav.style.display = 'flex';
+    } else {
+      elements.infoPanelPrev.onclick = null;
+      elements.infoPanelNext.onclick = null;
+      elements.infoPanelNav.style.display = 'none';
+    }
+  }
+
   elements.infoPanel.style.display = 'flex';
   // Force reflow before removing hidden class for transition
   elements.infoPanel.offsetHeight;
@@ -146,6 +163,7 @@ export function hideInfoPanel() {
   if (!elements.infoPanel) return;
   elements.infoPanel.classList.add('hidden');
   infoPanelCloseCallback = null;
+  if (elements.infoPanelNav) elements.infoPanelNav.style.display = 'none';
   if (infoPanelHideTimer) clearTimeout(infoPanelHideTimer);
   infoPanelHideTimer = setTimeout(() => {
     elements.infoPanel.style.display = 'none';

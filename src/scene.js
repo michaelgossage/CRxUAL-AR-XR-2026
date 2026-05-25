@@ -1,5 +1,6 @@
 // Scene management — creates the custom pipeline module for 8th Wall
 import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { initTargets, tickReveals, onImageFound, onImageUpdated, onImageLost } from './targets.js';
 
 let scene, camera, renderer;
@@ -26,6 +27,11 @@ export function createSceneModule() {
       // Cap pixel ratio for performance
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(window.innerWidth, window.innerHeight);
+
+      // Procedural room environment — gives IBL reflections to metallic/standard materials
+      const pmrem = new THREE.PMREMGenerator(renderer);
+      scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+      pmrem.dispose();
 
       // Lighting
       const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.0);

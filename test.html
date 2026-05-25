@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview — Chancery Rosewood</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #1a0a2e;
+      color: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #app {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────────────────────── */
+    #sidebar {
+      flex: 0 0 260px;
+      display: flex;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.3);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .sidebar-header {
+      padding: 20px 16px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    .sidebar-header h1 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e2b657;
+      margin-bottom: 3px;
+    }
+
+    .sidebar-header p {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.05em;
+    }
+
+    #artwork-list {
+      overflow-y: auto;
+      flex: 1;
+      padding: 6px 0;
+    }
+
+    #artwork-list::-webkit-scrollbar { width: 4px; }
+    #artwork-list::-webkit-scrollbar-track { background: transparent; }
+    #artwork-list::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 2px; }
+
+    .artwork-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      width: 100%;
+      padding: 10px 16px;
+      background: none;
+      border: none;
+      border-left: 3px solid transparent;
+      color: inherit;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.12s, border-color 0.12s;
+    }
+
+    .artwork-item:hover { background: rgba(255, 255, 255, 0.04); }
+
+    .artwork-item.active {
+      background: rgba(226, 182, 87, 0.09);
+      border-left-color: #e2b657;
+    }
+
+    .item-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.3;
+    }
+
+    .artwork-item.active .item-title { color: #e2b657; }
+
+    .item-artist {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .item-badge {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-top: 3px;
+    }
+
+    .badge-model          { background: rgba(79, 110, 200, 0.22); color: #7ca0f0; }
+    .badge-gallery        { background: rgba(50, 180, 140, 0.18); color: #5dddb8; }
+    .badge-modelcarousel  { background: rgba(190, 100, 200, 0.18); color: #d88de8; }
+
+    /* ── Viewer ──────────────────────────────────────────────────────────── */
+    #viewer {
+      flex: 1;
+      position: relative;
+      background: #0a0514;
+      overflow: hidden;
+    }
+
+    #preview-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Loading */
+    #loading-overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    #loading-overlay span {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Keyboard hint */
+    #keyboard-hint {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.18);
+      letter-spacing: 0.07em;
+      z-index: 10;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Info bar */
+    #info-bar {
+      position: absolute;
+      bottom: 48px;
+      left: 0;
+      right: 0;
+      padding: 32px 24px 16px;
+      background: linear-gradient(transparent, rgba(8, 3, 18, 0.88));
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    #inner-nav {
+      display: none;
+      gap: 8px;
+      margin-bottom: 12px;
+      pointer-events: all;
+    }
+
+    .nav-btn {
+      background: rgba(226, 182, 87, 0.12);
+      border: 1px solid rgba(226, 182, 87, 0.28);
+      color: #e2b657;
+      font-size: 14px;
+      padding: 5px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+
+    .nav-btn:hover { background: rgba(226, 182, 87, 0.22); }
+
+    #info-title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    #info-meta {
+      font-size: 12px;
+      color: #e2b657;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    #info-description {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.55;
+      max-width: 520px;
+    }
+
+    /* Bottom nav bar */
+    #artwork-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: rgba(0, 0, 0, 0.45);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      z-index: 20;
+    }
+
+    .artwork-nav-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 11px;
+      padding: 4px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.07em;
+      transition: border-color 0.12s, color 0.12s;
+    }
+
+    .artwork-nav-btn:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #fff;
+    }
+
+    #artwork-counter {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.1em;
+      min-width: 56px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <h1>Chancery Rosewood</h1>
+        <p>AR Preview Tool</p>
+      </div>
+      <div id="artwork-list"></div>
+    </aside>
+
+    <main id="viewer">
+      <canvas id="preview-canvas"></canvas>
+
+      <div id="loading-overlay">
+        <span>Loading…</span>
+      </div>
+
+      <div id="keyboard-hint">← → artworks &nbsp;·&nbsp; ↑ ↓ panels &nbsp;·&nbsp; drag to orbit</div>
+
+      <div id="info-bar">
+        <div id="inner-nav">
+          <button class="nav-btn" id="inner-prev">&#8592;</button>
+          <button class="nav-btn" id="inner-next">&#8594;</button>
+        </div>
+        <div id="info-title"></div>
+        <div id="info-meta"></div>
+        <div id="info-description"></div>
+      </div>
+
+      <div id="artwork-nav">
+        <button class="artwork-nav-btn" id="artwork-prev">← Prev</button>
+        <span id="artwork-counter">— / —</span>
+        <button class="artwork-nav-btn" id="artwork-next">Next →</button>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/src/test-preview.js"></script>
+</body>
+</html>

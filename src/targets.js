@@ -31,6 +31,11 @@ export async function loadArtworkData() {
         if (p.src) p.src = resolveUrl(p.src);
       }
     }
+    if (aw.items) {
+      for (const item of aw.items) {
+        if (item.model) item.model = resolveUrl(item.model);
+      }
+    }
     artworkMap.set(aw.targetName, aw);
   }
 
@@ -121,13 +126,19 @@ export async function onImageFound(detail) {
       console.log(`[AR] Reveal entered — state: ${reveal.state}, root visible: ${reveal.root.visible}, root scale: ${reveal.root.scale.x}`);
       console.log(`[AR] Anchor pos: (${anchor.position.x.toFixed(2)}, ${anchor.position.y.toFixed(2)}, ${anchor.position.z.toFixed(2)})`);
       showHUD(`${config.title} — ${config.artist}`);
-      showInfoPanel(config, () => {
-        // X button pressed — dismiss the artwork
+      const onClose = () => {
         if (activeReveal && !activeReveal.isExiting) {
           activeReveal.exit();
           hideHUD();
         }
-      });
+      };
+      const isModelCarousel = config.type === 'model-carousel';
+      showInfoPanel(
+        config,
+        onClose,
+        isModelCarousel ? () => reveal.navigate(-1) : null,
+        isModelCarousel ? () => reveal.navigate(1) : null,
+      );
     } else {
       console.warn(`[AR] Reveal replaced during load, disposing`);
       reveal.dispose();

@@ -396,3 +396,29 @@ html, body {
   flex: 1 1 auto;
   min-height: 0;
 }
+
+.info-panel-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.info-panel-nav-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(226, 182, 87, 0.5);
+  background: rgba(226, 182, 87, 0.1);
+  color: #e2b657;
+  font-size: 1.25rem;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-panel-nav-btn:active {
+  background: rgba(226, 182, 87, 0.3);
+}

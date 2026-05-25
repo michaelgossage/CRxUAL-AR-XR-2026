@@ -5,8 +5,11 @@ import { getActiveReveal } from './targets.js';
 let camera = null;
 let canvas = null;
 
+const _raycaster = new THREE.Raycaster();
+
 // Pointer state
 let isDown = false;
+let dragTarget = null; // model group to rotate (set on touch start via hitbox raycast)
 let startX = 0;
 let startY = 0;
 let lastX = 0;
@@ -94,6 +97,21 @@ function startDown(x, y) {
   startY = y;
   lastX = x;
   lastY = y;
+  dragTarget = null;
+
+  // For model-carousel: raycast to find which model group the touch landed on
+  // Skip for auto-spin reveals — drag rotates the whole ring, not individual models
+  const reveal = getActiveReveal();
+  if (reveal?.modelHitboxes?.length && !reveal.autoSpin && camera && canvas) {
+    const rect = canvas.getBoundingClientRect();
+    const ndcX = ((x - rect.left) / rect.width) * 2 - 1;
+    const ndcY = -((y - rect.top) / rect.height) * 2 + 1;
+    _raycaster.setFromCamera({ x: ndcX, y: ndcY }, camera);
+    const hits = _raycaster.intersectObjects(reveal.modelHitboxes);
+    if (hits.length > 0) {
+      dragTarget = hits[0].object.parent; // hitbox parent = model group
+    }
+  }
 }
 
 function handleDrag(x, y) {
@@ -107,11 +125,23 @@ function handleDrag(x, y) {
   const totalDy = y - startY;
   const totalDist = Math.sqrt(totalDx * totalDx + totalDy * totalDy);
 
-  // Allow rotation drag past slop threshold — except carousel reveals use swipe navigation
+  // Allow rotation drag past slop threshold — except gallery carousels use swipe navigation
   if (totalDist > TAP_SLOP) {
     const reveal = getActiveReveal();
-    if (reveal && reveal.root && !reveal._carousel) {
-      reveal.root.rotation.y += dx * 0.005;
+    if (reveal && reveal.root) {
+      if (reveal.autoSpin) {
+        reveal.rotateDelta(dx); // auto-spin: drag spins the whole ring
+      } else {
+        let target;
+        if (dragTarget !== null) {
+          target = dragTarget; // model-carousel: rotate whichever model was touched
+        } else if (reveal.modelHitboxes) {
+          target = null; // model-carousel but missed all models — no rotation
+        } else {
+          target = !reveal._carousel ? reveal.root : null; // all other reveal types
+        }
+        if (target) target.rotation.y += dx * 0.005;
+      }
     }
   }
 }
@@ -119,6 +149,7 @@ function handleDrag(x, y) {
 function endDown() {
   if (!isDown) return;
   isDown = false;
+  dragTarget = null;
 
   const totalDx = lastX - startX;
   const totalDy = lastY - startY;
@@ -135,8 +166,8 @@ function endDown() {
   }
 }
 
-function handleTap(x, y) {
-  // Tap handling reserved for future interaction
+function handleTap(_x, _y) {
+  // Navigation is handled via DOM buttons in the info panel
 }
 
 function getTouchDist(touches) {

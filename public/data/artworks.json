@@ -1,17 +1,5 @@
 [
-
-  {
-    "id": "artwork-01",
-    "targetName": "art-01",
-    "targetData": "./targets/compiled/artTest/art-01.json",
-    "title": "test V3",
-    "artist": "test",
-    "year": "2024",
-    "description": "Primary architectural model of the Chancery Rosewood collection, featuring detailed structural elements and material studies.",
-    "model": "./models/art3d-01.glb",
-    "scale": 0.5,
-    "offset": [0, 0.1, 0]
-  },
+  
   {
     "id": "BeNotAfraid",
     "targetName": "BeNotAfraid-RysiaAnnaKaczmar",
@@ -21,7 +9,7 @@
     "year": "2025",
     "description": "gods",
     "model": "./data/BeNotAfraid-RysiaAnnaKaczmar/BeNotAfraid_Artwork3D.glb",
-    "scale": 2,
+    "scale": 1.2,
     "offset": [0, 2, 0],
     "showOverlay": true
   },
@@ -37,7 +25,9 @@
     "panels": [
       {"src":"./data/Birdcage-JichuZhang/IMG_1571-1.jpg", "width": 1.0, "height": 1.0, "caption": "A"}
     ],
-    "layout": "arc",
+    "layout": "carousel",
+    "spacing": 0.35,
+    "curve": 0.5,
     "scale": 2,
     "offset": [0, 1, 0]
   },
@@ -53,7 +43,9 @@
     "panels": [
       {"src":"./targets/compiled/BlackSwan-JieunSung/BlackSwan-JieunSung_original.jpg", "width": 0.3, "caption": "A"}
     ],
-    "layout": "arc",
+    "layout": "carousel",
+    "spacing": 0.35,
+    "curve": 0.5,
     "scale": 2,
     "offset": [0, 1, 0]
   },
@@ -83,9 +75,9 @@
     "offset": [0, 1, 0]
   },
   {
-    "id": "EMBODIED",
-    "targetName": "EMBODIED-VeepraMishra",
-    "targetData": "./targets/compiled/EMBODIED-VeepraMishra/EMBODIED-VeepraMishra.json",
+    "id": "EMBODIED2",
+    "targetName": "EMBODIED-VeepraMishra2",
+    "targetData": "./targets/compiled/EMBODIED-VeepraMishra/EMBODIED-VeepraMishra2.json",
     "title": "EMBODIED",
     "artist": "Veepra Mishra",
     "year": "2025",
@@ -114,20 +106,9 @@
     "title": "Embodied Memories",
     "artist": "Yoon Ju Chung",
     "year": "2025",
-    "description": "gods",
-    "type": "gallery",
-    "panels": [
-      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_1.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_2.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_3.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_4.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_5.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EmbodiedMemories-YoonJuChung/EmbodiedMemories_6.jpg", "width": 0.3, "caption": ""}
-    ],
-    "layout": "carousel",
-    "spacing": 0.35,
-    "scale": 3,
-    "curve": 0.5,
+    "description": "",
+    "model": "./data/EmbodiedMemories-YoonJuChung/JU CHUNG_V2.glb",
+    "scale": 1.0,
     "offset": [0, 1, 0]
   },
   {
@@ -138,20 +119,15 @@
     "artist": "Justina Alexandroff",
     "year": "2025",
     "description": "gods",
-    "type": "gallery",
-    "panels": [
-      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_1.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_2.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_3.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_4.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_5.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/FauxFlora-JustinaAlexandroff/FauxFlora_6.jpg", "width": 0.3, "caption": ""}
-    ],
-    "layout": "carousel",
-    "spacing": 0.35,
-    "scale": 3,
-    "curve": 0.5,
-    "offset": [0, 1, 0]
+    "type": "model-carousel",
+    "autoSpin": true,
+    "spinSpeed": 0.2,
+    "radius": 0.5,
+    "offset": [0, 1.0, 0],
+    "items": [
+      { "model": "./data/FauxFlora_JustinaAlexandrof/FauxFlora01.glb", "scale": 0.8 },
+      { "model": "./data/FauxFlora_JustinaAlexandrof/FauxFloraArrangement.glb", "scale": 0.8 }
+    ]
   },
   {
     "id": "LetMeEatCake",
@@ -161,19 +137,17 @@
     "artist": "Suzanna Teal",
     "year": "2025",
     "description": "gods",
-    "type": "gallery",
-    "panels": [
-      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_1.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_2.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_3.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_4.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_5.jpg", "width": 0.3, "caption": ""}
-    ],
-    "layout": "carousel",
-    "spacing": 0.35,
-    "scale": 3,
-    "curve": 0.5,
-    "offset": [0, 1, 0]
+    "type": "model-carousel",
+    "autoSpin": true,
+    "spinSpeed": 0.2,
+    "radius": 0.6,
+    "offset": [0, 1.0, 0],
+    "items": [
+      { "model": "./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_01.glb", "scale": 1.2 },
+      { "model": "./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_02.glb", "scale": 1.2 },
+      { "model": "./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_03.glb", "scale": 1.2 },
+      { "model": "./data/LetMeEatCake-SuzannaTeal/LetMeEatCake_04.glb", "scale": 1.2 }
+    ]
   },
   {
     "id": "NoLongerUs",
@@ -187,7 +161,7 @@
     "panels": [
       {"src":"./data/NoLongerUs-JunShya/NoLongerUs.jpg", "width": 0.3, "caption": ""}
     ],
-    "layout": "grid",
+    "layout": "carousel",
     "spacing": 0.35,
     "scale": 3,
     "curve": 0.5,
@@ -209,7 +183,7 @@
       {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_4.jpg", "width": 0.3, "caption": ""},
       {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_5.jpg", "width": 0.3, "caption": ""}
     ],
-    "layout": "grid",
+    "layout": "carousel",
     "spacing": 0.35,
     "scale": 3,
     "curve": 0.5,
@@ -258,27 +232,175 @@
       {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.21.png", "width": 0.3, "height": 0.2, "caption": "E"},
       {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.26.png", "width": 0.3, "height": 0.2, "caption": "F"}
     ],
-    "layout": "arc",
+    "layout": "carousel",
+    "spacing": 0.35,
+    "curve": 0.5,
     "scale": 2,
     "offset": [0, 1, 0]
   },
+
+
+
   {
-    "id": "YiyuChoeyChen",
-    "targetName": "tar_YiyuChoeyChen",
-    "targetData": "./targets/compiled/YiyuChoeyChen/tar_YiyuChoeyChen.json",
-    "title": "In Transitional Space",
-    "artist": "Yiyu Choey Chen",
-    "year": "2024",
-    "description": "In the Transitional Space, explore the fragile boundary between reality and imagination, where trauma does not need to be spoken but can be sensed and held. Rooted in the idea of Winnicott’s “transitional space,” the project approaches intergenerational wounds not through direct depiction, but through symbolic language that allows for containment, reflection, and transformation.",
+    "id": "Nailed",
+    "targetName": "Nailed-GenevieveCarr",
+    "targetData": "./targets/compiled/Nailed-GenevieveCarr/Nailed-GenevieveCarr.json",
+    "title": "Nailed",
+    "artist": "Genevieve Carr",
+    "year": "2025",
+    "description": "Auto-rotating showcase. Drag to spin the carousel.",
+    "type": "model-carousel",
+    "autoSpin": true,
+    "spinSpeed": 0.2,
+    "radius": 0.6,
+    "offset": [0, 1.0, 0],
+    "items": [
+      { "model": "./data/Nailed_Genevieve Carr/5Hole_Decimate.glb",      "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/Bone_Decimate.glb",        "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/Hmmnotsure_Decimate.glb",  "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/PointBall_Decimate.glb",   "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/TroPhobia_Decimate.glb",   "scale": 0.06 },
+      { "model": "./data/Nailed_Genevieve Carr/lotsofholes_Decimate.glb", "scale": 0.06 }
+    ]
+  },
+
+  {
+    "id": "EMBODIED",
+    "targetName": "EMBODIED-VeepraMishra",
+    "targetData": "./targets/compiled/EMBODIED-VeepraMishra/EMBODIED-VeepraMishra.json",
+    "title": "EMBODIED",
+    "artist": "Veepra Mishra",
+    "year": "2025",
+    "description": "Auto-rotating showcase. Drag to spin the carousel.",
+    "type": "model-carousel",
+    "autoSpin": true,
+    "spinSpeed": 0.1,
+    "radius": 0.6,
+    "offset": [0, 1.0, 0],
+    "materialOverride": "silver",
+    "items": [
+      { "model": "./data/EMBODIED-VeepraMishra/Optimized 3D/VeepraMishra-Ear-01.glb",      "scale": 1.5 },
+      { "model": "./data/EMBODIED-VeepraMishra/Optimized 3D/VeepraMishra-Ear-02.glb",      "scale": 1.5 },
+      { "model": "./data/EMBODIED-VeepraMishra/Optimized 3D/VeepraMishra-Ear-03.glb",      "scale": 1.5 },
+      { "model": "./data/EMBODIED-VeepraMishra/Optimized 3D/VeepraMishra-Ear-04.glb",      "scale": 1.5 },
+      { "model": "./data/EMBODIED-VeepraMishra/Optimized 3D/VeepraMishra-Ear-05.glb",      "scale": 1.5 },
+      { "model": "./data/EMBODIED-VeepraMishra/Optimized 3D/VeepraMishra-Ear-06.glb",      "scale": 1.5 },
+      { "model": "./data/EMBODIED-VeepraMishra/Optimized 3D/VeepraMishra-Ear-07.glb",      "scale": 1.5 },
+      { "model": "./data/EMBODIED-VeepraMishra/Optimized 3D/VeepraMishra-Ear-08.glb",      "scale": 1.5 },
+      { "model": "./data/EMBODIED-VeepraMishra/Optimized 3D/VeepraMishra-Ear-09.glb",      "scale": 1.5 }
+    ]
+  },
+
+  {
+    "id": "LustFeelsLikeBadLuck",
+    "targetName": "LustFeelsLikeBadLuck-JuliaPytko",
+    "targetData": "./targets/compiled/LustFeelsLikeBadLuck-JuliaPytko/LustFeelsLikeBadLuck-JuliaPytko.json",
+    "title": "Lust Feels Like Bad Luck",
+    "artist": "Julia Pytko",
+    "year": "2025",
+    "description": "gods",
     "type": "gallery",
     "panels": [
-      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.47.48.png", "width": 0.3, "height": 0.2, "caption": "A"},
-      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.47.57.png", "width": 0.3, "height": 0.2, "caption": "B"},
-      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.48.04.png", "width": 0.3, "height": 0.2, "caption": "C"},
-      {"src":"./data/YiyuChoeyChen/Screenshot 2026-03-11 at 20.48.12.png", "width": 0.3, "height": 0.2, "caption": "D"}
+      {"src":"./data/LustFeelsLikeBadLuck-JuliaPytko/Backwards-Artwork-1_1.jpg", "width": 0.8, "height": 1.0, "caption": ""}
     ],
-    "layout": "arc",
+    "layout": "carousel",
+    "spacing": 0.35,
+    "curve": 0.5,
     "scale": 2,
+    "offset": [0, 1, 0]
+  },
+
+  {
+    "id": "MaterialPlace",
+    "targetName": "MaterialPlace-NeveBeill",
+    "targetData": "./targets/compiled/MaterialPlace-NeveBeill/MaterialPlace-NeveBeill.json",
+    "title": "Material Place",
+    "artist": "Neve Beill",
+    "year": "2025",
+    "description": "Auto-rotating showcase. Drag to spin the carousel.",
+    "type": "model-carousel",
+    "autoSpin": true,
+    "spinSpeed": 0.05,
+    "radius": 0.8,
+    "offset": [0, 1.0, 0],
+    "items": [
+      { "model": "./data/MaterialPlace_NeveBeill/MaterialPlace_01.glb", "scale": 1.0 },
+      { "model": "./data/MaterialPlace_NeveBeill/MaterialPlace_02.glb", "scale": 1.0 },
+      { "model": "./data/MaterialPlace_NeveBeill/MaterialPlace_03.glb", "scale": 1.0 },
+      { "model": "./data/MaterialPlace_NeveBeill/MaterialPlace_04.glb", "scale": 1.0 },
+      { "model": "./data/MaterialPlace_NeveBeill/MaterialPlace_05.glb", "scale": 1.0 },
+      { "model": "./data/MaterialPlace_NeveBeill/MaterialPlace_06.glb", "scale": 1.0 }
+    ]
+  },
+
+  {
+    "id": "Pseudosynthesis",
+    "targetName": "Pseudosynthesis-LeonLin",
+    "targetData": "./targets/compiled/Pseudosynthesis-LeonLin/Pseudosynthesis-LeonLin.json",
+    "title": "Pseudosynthesis",
+    "artist": "Leon Lin",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/Pseudosynthesis_LeonLin/Vertical_comp-1.png.avif", "width": 0.6, "height": 1.2, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.35,
+    "curve": 0.5,
+    "scale": 2,
+    "offset": [0, 1, 0]
+  },
+
+  {
+    "id": "Symbion",
+    "targetName": "Symbion",
+    "targetData": "./targets/compiled/Symbion/Symbion.json",
+    "title": "Symbion",
+    "artist": "Symbion",
+    "year": "2025",
+    "description": "gods",
+    "model": "./data/Symbion/symbionHand.glb",
+    "scale": 0.7,
+    "offset": [0, 0.5, 0],
+    "showOverlay": false,
+    "_targetNote": "PLACEHOLDER — compiled target missing, run compile-targets after adding source image"
+  },
+
+  {
+    "id": "TheNoos",
+    "targetName": "TheNoos-SanneWinderickx",
+    "targetData": "./targets/compiled/TheNoos-SanneWinderickx/TheNoos-SanneWinderickx.json",
+    "title": "The Noos",
+    "artist": "Sanne Winderickx",
+    "year": "2025",
+    "description": "gods",
+    "model": "./data/TheNoos-SanneWinderickx/TheNoos_yellowHand.glb",
+    "scale": 0.7,
+    "offset": [0, 0.5, 0],
+    "showOverlay": false,
+    "_targetNote": "PLACEHOLDER — compiled target missing, run compile-targets after adding source image"
+  },
+
+  {
+    "id": "WhimsyThroughTheWindow",
+    "targetName": "WhimsyThroughTheWindow-SarahAbdi",
+    "targetData": "./targets/compiled/WhimsyThroughTheWindow-SarahAbdi/WhimsyThroughTheWindow-SarahAbdi.json",
+    "title": "Whimsy Through the Window",
+    "artist": "Sarah Abdi",
+    "year": "2025",
+    "description": "gods",
+    "type": "gallery",
+    "panels": [
+      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250510_104607.jpg", "width": 0.45, "caption": ""},
+      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250530_193031-rotated.jpg", "width": 0.45, "caption": ""},
+      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250530_193358.jpg", "width": 0.45, "caption": ""},
+      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250530_193601-1.jpg", "width": 0.45, "caption": ""}
+    ],
+    "layout": "carousel",
+    "spacing": 0.5,
+    "scale": 3,
+    "curve": 0.5,
     "offset": [0, 1, 0]
   }
 

@@ -4,6 +4,8 @@ import RevealBase from './RevealBase.js';
 const textureLoader = new THREE.TextureLoader();
 const textureCache = new Map();
 
+const PANEL_THICKNESS = 0.008; // 8 mm — physical canvas depth
+
 // Layout presets — add more as needed
 const LAYOUTS = {
   // Single row, evenly spaced
@@ -99,6 +101,7 @@ export default class GalleryReveal extends RevealBase {
     this._arcWrapper = null;  // non-null only when curve > 0
     this._dotMeshes = [];
     this._carouselSpacing = 0;
+    this._floatTime = 0;
   }
 
   async load() {
@@ -202,7 +205,7 @@ export default class GalleryReveal extends RevealBase {
     for (let i = 0; i < count; i++) {
       const geo = new THREE.CircleGeometry(DOT_RADIUS, 16);
       const mat = new THREE.MeshBasicMaterial({
-        color: i === 0 ? 0xe2b657 : 0x555555,
+        color: i === 0 ? 0xffffff : 0x555555,
         transparent: true,
       });
       const dot = new THREE.Mesh(geo, mat);
@@ -230,7 +233,7 @@ export default class GalleryReveal extends RevealBase {
       this._carousel.targetX = -newIndex * this._carouselSpacing;
     }
     this._dotMeshes.forEach((dot, i) => {
-      dot.material.color.set(i === newIndex ? 0xe2b657 : 0x555555);
+      dot.material.color.set(i === newIndex ? 0xffffff : 0x555555);
     });
   }
 
@@ -242,7 +245,7 @@ export default class GalleryReveal extends RevealBase {
       caption,
       autoplay = true,
       loop = true,
-      borderColor = 0xe2b657,
+      borderColor = 0xffffff,
       borderWidth = 0.005,
     } = panelDef;
 
@@ -279,10 +282,18 @@ export default class GalleryReveal extends RevealBase {
       }
     }
 
-    // Panel mesh
-    const geo = new THREE.PlaneGeometry(finalWidth, finalHeight);
-    const mesh = new THREE.Mesh(geo, material);
+    // Panel mesh — BoxGeometry gives physical thickness; front face (+Z, index 4) gets the image
+    const geo = new THREE.BoxGeometry(finalWidth, finalHeight, PANEL_THICKNESS);
+    const sideMat = new THREE.MeshStandardMaterial({
+      color: 0xf0ede8,
+      roughness: 0.9,
+      metalness: 0.0,
+      transparent: true,
+    });
+    const mesh = new THREE.Mesh(geo, [sideMat, sideMat, sideMat, sideMat, material, sideMat]);
     mesh.position.set(pos.x, pos.y, pos.z);
+    mesh.userData.baseY = pos.y;
+    mesh.userData.floatPhase = this.panelMeshes.length * 0.9;
     if (pos.rotY) mesh.rotation.y = pos.rotY;
 
     // Border frame
@@ -362,7 +373,7 @@ export default class GalleryReveal extends RevealBase {
     for (const bar of bars) {
       const geo = new THREE.PlaneGeometry(bar.w, bar.h);
       const mesh = new THREE.Mesh(geo, mat);
-      mesh.position.set(bar.x, bar.y, 0.001); // slight z offset to sit in front
+      mesh.position.set(bar.x, bar.y, PANEL_THICKNESS / 2 + 0.001);
       group.add(mesh);
     }
 
@@ -412,6 +423,14 @@ export default class GalleryReveal extends RevealBase {
         this._track.position.x +=
           (this._carousel.targetX - this._track.position.x) * speed;
       }
+    }
+
+    this._floatTime += dt;
+    for (let i = 0; i < this.panelMeshes.length; i++) {
+      const panel = this.panelMeshes[i];
+      panel.position.y =
+        panel.userData.baseY +
+        Math.sin(this._floatTime * 0.6 + panel.userData.floatPhase) * 0.012;
     }
   }
 

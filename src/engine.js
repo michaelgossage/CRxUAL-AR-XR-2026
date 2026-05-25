@@ -75,10 +75,18 @@ export async function initEngine() {
 
   setLoadingProgress(50, 'Configuring AR…');
 
+  // Deduplicate by name — 8th Wall fails silently if the same name appears twice
+  const seen = new Set();
+  const dedupedTargetData = imageTargetData.filter(d => {
+    if (seen.has(d.name)) { console.warn(`[AR] Duplicate target name "${d.name}" — skipping`); return false; }
+    seen.add(d.name);
+    return true;
+  });
+
   // Configure image targets with loaded data (self-hosted approach)
-  if (imageTargetData.length > 0) {
-    console.log(`[AR] Configuring ${imageTargetData.length} image targets (self-hosted)`);
-    XR8.XrController.configure({ imageTargetData });
+  if (dedupedTargetData.length > 0) {
+    console.log(`[AR] Configuring ${dedupedTargetData.length} image targets (self-hosted)`);
+    XR8.XrController.configure({ imageTargetData: dedupedTargetData });
   } else {
     // Fallback: use target names (for legacy .imgtar format)
     const targetNames = artworks.map((a) => a.targetName);
@@ -155,8 +163,8 @@ export async function initEngine() {
     debugEl.scrollTop = debugEl.scrollHeight;
   };
 
-  debugLog(`XR8 loaded — ${imageTargetData.length} targets configured`);
-  if (imageTargetData.length === 0) {
+  debugLog(`XR8 loaded — ${dedupedTargetData.length} targets configured`);
+  if (dedupedTargetData.length === 0) {
     debugLog('⚠ No image target data loaded! Add targetData to artworks.json');
   }
 
