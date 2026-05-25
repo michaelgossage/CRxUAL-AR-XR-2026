@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 
 export default defineConfig({
+  appType: 'mpa',
   plugins: [basicSsl()],
   server: {
     host: true,

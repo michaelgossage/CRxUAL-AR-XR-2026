@@ -39,7 +39,7 @@ export default class ArtworkReveal extends RevealBase {
   }
 
   async load() {
-    const { model: modelUrl, scale = 0.5, offset = [0, 0, 0] } = this.config;
+    const { model: modelUrl, scale = 0.5, offset = [0, 0, 0], rotation = [0, 0, 0] } = this.config;
 
     let model;
     try {
@@ -71,6 +71,11 @@ export default class ArtworkReveal extends RevealBase {
       model = gltf.scene.clone();
       model.scale.setScalar(scale);
       model.position.set(offset[0], offset[1], offset[2]);
+      model.rotation.set(
+        THREE.MathUtils.degToRad(rotation[0]),
+        THREE.MathUtils.degToRad(rotation[1]),
+        THREE.MathUtils.degToRad(rotation[2]),
+      );
 
       // Ensure all materials support transparency for enter/exit animations
       model.traverse((child) => {

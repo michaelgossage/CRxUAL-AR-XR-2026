@@ -75,31 +75,6 @@
     "offset": [0, 1, 0]
   },
   {
-    "id": "EMBODIED2",
-    "targetName": "EMBODIED-VeepraMishra2",
-    "targetData": "./targets/compiled/EMBODIED-VeepraMishra/EMBODIED-VeepraMishra2.json",
-    "title": "EMBODIED",
-    "artist": "Veepra Mishra",
-    "year": "2025",
-    "description": "gods",
-    "type": "gallery",
-    "panels": [
-      {"src":"./data/EMBODIED-VeepraMishra/Embodied_1.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EMBODIED-VeepraMishra/Embodied_2.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EMBODIED-VeepraMishra/Embodied_3.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EMBODIED-VeepraMishra/Embodied_4.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EMBODIED-VeepraMishra/Embodied_5.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EMBODIED-VeepraMishra/Embodied_6.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EMBODIED-VeepraMishra/Embodied_7.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/EMBODIED-VeepraMishra/Embodied_8.jpg", "width": 0.3, "caption": ""}
-    ],
-    "layout": "carousel",
-    "spacing": 0.35,
-    "scale": 3,
-    "curve": 0.5,
-    "offset": [0, 1, 0]
-  },
-  {
     "id": "EmbodiedMemories",
     "targetName": "EmbodiedMemories-YoonJuChung",
     "targetData": "./targets/compiled/EmbodiedMemories-YoonJuChung/EmbodiedMemories-YoonJuChung.json",
@@ -223,18 +198,7 @@
     "artist": "MarieSaintYves",
     "year": "2024",
     "description": "Primary architectural model of the Chancery Rosewood collection, featuring detailed structural elements and material studies.",
-    "type": "gallery",
-    "panels": [
-      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.02.png", "width": 0.3, "height": 0.2, "caption": "A"},
-      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.07.png", "width": 0.3, "height": 0.2, "caption": "B"},
-      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.11.png", "width": 0.3, "height": 0.2, "caption": "C"},
-      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.17.png", "width": 0.3, "height": 0.2, "caption": "D"},
-      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.21.png", "width": 0.3, "height": 0.2, "caption": "E"},
-      {"src":"./data/MarieSainYves/Screenshot 2026-03-11 at 21.21.26.png", "width": 0.3, "height": 0.2, "caption": "F"}
-    ],
-    "layout": "carousel",
-    "spacing": 0.35,
-    "curve": 0.5,
+    "model": "./data/Experiment58/Experiment58.glb",
     "scale": 2,
     "offset": [0, 1, 0]
   },
@@ -254,6 +218,7 @@
     "spinSpeed": 0.2,
     "radius": 0.6,
     "offset": [0, 1.0, 0],
+    "materialOverride": "cream",
     "items": [
       { "model": "./data/Nailed_Genevieve Carr/5Hole_Decimate.glb",      "scale": 0.06 },
       { "model": "./data/Nailed_Genevieve Carr/Bone_Decimate.glb",        "scale": 0.06 },
@@ -363,6 +328,7 @@
     "model": "./data/Symbion/symbionHandandPiano.glb",
     "scale": 0.7,
     "offset": [0, 0.5, 0],
+    "rotation": [0, 180, 0],
     "showOverlay": false
   },
 

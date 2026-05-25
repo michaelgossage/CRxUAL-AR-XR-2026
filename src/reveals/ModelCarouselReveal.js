@@ -84,12 +84,12 @@ export default class ModelCarouselReveal extends RevealBase {
       model.scale.setScalar(scale);
       model.position.set(itemOffset[0], 0, itemOffset[2]);
 
-      const silverOverride = this.config.materialOverride === 'silver';
+      const materialOverride = this.config.materialOverride;
       model.traverse((child) => {
         if (child.isMesh) {
           child.castShadow = false;
           child.receiveShadow = false;
-          if (silverOverride) {
+          if (materialOverride === 'silver') {
             const makesSilver = () => new THREE.MeshStandardMaterial({
               color: 0xd0d0d0,
               metalness: 0.95,
@@ -100,6 +100,17 @@ export default class ModelCarouselReveal extends RevealBase {
             child.material = Array.isArray(child.material)
               ? child.material.map(makesSilver)
               : makesSilver();
+          } else if (materialOverride === 'cream') {
+            const makesCream = () => new THREE.MeshStandardMaterial({
+              color: 0xf2ebe0,
+              metalness: 0.0,
+              roughness: 0.92,
+              transparent: true,
+              depthWrite: true,
+            });
+            child.material = Array.isArray(child.material)
+              ? child.material.map(makesCream)
+              : makesCream();
           } else if (child.material) {
             const mats = Array.isArray(child.material) ? child.material : [child.material];
             mats.forEach((mat) => { mat.transparent = true; mat.depthWrite = true; });
