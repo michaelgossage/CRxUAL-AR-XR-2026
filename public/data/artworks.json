@@ -2,8 +2,8 @@
   
   {
     "id": "BeNotAfraid",
-    "targetName": "BeNotAfraid-RysiaAnnaKaczmar",
-    "targetData": "./targets/compiled/BeNotAfraid-RysiaAnnaKaczmar/BeNotAfraid-RysiaAnnaKaczmar.json",
+    "targetName": "BeNotAfraid-RysiaAnnaKaczmar2",
+    "targetData": "./targets/compiled/BeNotAfraid-RysiaAnnaKaczmar2.json",
     "title": "Be Not Afraid",
     "artist": "Rysia Anna Kaczmar",
     "year": "2025",
@@ -51,8 +51,8 @@
   },
   {
     "id": "Dehumanized",
-    "targetName": "Dehumanized-ChiAnChou",
-    "targetData": "./targets/compiled/Dehumanized-ChiAnChou/Dehumanized-ChiAnChou.json",
+    "targetName": "Dehumanized-ChiAnChou2",
+    "targetData": "./targets/compiled/Dehumanized-ChiAnChou2.json",
     "title": "Dehumanized",
     "artist": "Chi An Chou",
     "year": "2025",
@@ -169,8 +169,8 @@
   },
   {
     "id": "Self Finish",
-    "targetName": "Self-Finish-BeatriceElAsmar",
-    "targetData": "./targets/compiled/Self-Finish-BeatriceElAsmar/Self-Finish-BeatriceElAsmar.json",
+    "targetName": "Self-Finish-BeatriceElAsmar2",
+    "targetData": "./targets/compiled/Self-Finish-BeatriceElAsmar2.json",
     "title": "Self Finish",
     "artist": "Beatrice El Asmar",
     "year": "2025",
@@ -191,8 +191,8 @@
   },
   {
     "id": "Unrendered",
-    "targetName": "Unrendered-Marie-LisetteCropp",
-    "targetData": "./targets/compiled/Unrendered-Marie-LisetteCropp/Unrendered-Marie-LisetteCropp.json",
+    "targetName": "Unrendered-Marie-LisetteCropp2",
+    "targetData": "./targets/compiled/Unrendered-Marie-LisetteCropp2.json",
     "title": "Unrendered",
     "artist": "Marie-Lisette Cropp",
     "year": "2025",
@@ -293,8 +293,8 @@
 
   {
     "id": "LustFeelsLikeBadLuck",
-    "targetName": "LustFeelsLikeBadLuck-JuliaPytko",
-    "targetData": "./targets/compiled/LustFeelsLikeBadLuck-JuliaPytko/LustFeelsLikeBadLuck-JuliaPytko.json",
+    "targetName": "LustFeelsLikeBadLuck-JuliaPytko2",
+    "targetData": "./targets/compiled/LustFeelsLikeBadLuck-JuliaPytko2.json",
     "title": "Lust Feels Like Bad Luck",
     "artist": "Julia Pytko",
     "year": "2025",
@@ -312,8 +312,8 @@
 
   {
     "id": "MaterialPlace",
-    "targetName": "MaterialPlace-NeveBeill",
-    "targetData": "./targets/compiled/MaterialPlace-NeveBeill/MaterialPlace-NeveBeill.json",
+    "targetName": "MaterialPlace-NeveBeill2",
+    "targetData": "./targets/compiled/MaterialPlace-NeveBeill2.json",
     "title": "Material Place",
     "artist": "Neve Beill",
     "year": "2025",
@@ -335,8 +335,8 @@
 
   {
     "id": "Pseudosynthesis",
-    "targetName": "Pseudosynthesis-LeonLin",
-    "targetData": "./targets/compiled/Pseudosynthesis-LeonLin/Pseudosynthesis-LeonLin.json",
+    "targetName": "Pseudosynthesis-LeonLin2",
+    "targetData": "./targets/compiled/Pseudosynthesis-LeonLin2.json",
     "title": "Pseudosynthesis",
     "artist": "Leon Lin",
     "year": "2025",
@@ -354,23 +354,22 @@
 
   {
     "id": "Symbion",
-    "targetName": "Symbion",
-    "targetData": "./targets/compiled/Symbion/Symbion.json",
+    "targetName": "Symbion-ShuyangWang",
+    "targetData": "./targets/compiled/Symbion-ShuyangWang.json",
     "title": "Symbion",
     "artist": "Symbion",
     "year": "2025",
     "description": "gods",
-    "model": "./data/Symbion/symbionHand.glb",
+    "model": "./data/Symbion/symbionHandandPiano.glb",
     "scale": 0.7,
     "offset": [0, 0.5, 0],
-    "showOverlay": false,
-    "_targetNote": "PLACEHOLDER — compiled target missing, run compile-targets after adding source image"
+    "showOverlay": false
   },
 
   {
     "id": "TheNoos",
     "targetName": "TheNoos-SanneWinderickx",
-    "targetData": "./targets/compiled/TheNoos-SanneWinderickx/TheNoos-SanneWinderickx.json",
+    "targetData": "./targets/compiled/TheNoos-SanneWinderickx.json",
     "title": "The Noos",
     "artist": "Sanne Winderickx",
     "year": "2025",
@@ -378,8 +377,7 @@
     "model": "./data/TheNoos-SanneWinderickx/TheNoos_yellowHand.glb",
     "scale": 0.7,
     "offset": [0, 0.5, 0],
-    "showOverlay": false,
-    "_targetNote": "PLACEHOLDER — compiled target missing, run compile-targets after adding source image"
+    "showOverlay": false
   },
 
   {

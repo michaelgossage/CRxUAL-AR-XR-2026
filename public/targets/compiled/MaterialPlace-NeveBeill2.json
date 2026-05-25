@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/MaterialPlace-NeveBeill2_luminance.png",
+  "metadata": null,
+  "name": "MaterialPlace-NeveBeill2",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 268,
+    "width": 1558,
+    "height": 2077,
+    "isRotated": true,
+    "originalWidth": 1558,
+    "originalHeight": 2613
+  },
+  "resources": {
+    "originalImage": "MaterialPlace-NeveBeill2_original.png",
+    "croppedImage": "MaterialPlace-NeveBeill2_cropped.png",
+    "thumbnailImage": "MaterialPlace-NeveBeill2_thumbnail.png",
+    "luminanceImage": "MaterialPlace-NeveBeill2_luminance.png"
+  },
+  "created": 1779710507652,
+  "updated": 1779710507652
+}

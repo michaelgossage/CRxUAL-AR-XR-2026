@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/BeNotAfraid-RysiaAnnaKaczmar2_luminance.png",
+  "metadata": null,
+  "name": "BeNotAfraid-RysiaAnnaKaczmar2",
+  "type": "PLANAR",
+  "properties": {
+    "left": 166,
+    "top": 0,
+    "width": 1958,
+    "height": 2610,
+    "isRotated": true,
+    "originalWidth": 2290,
+    "originalHeight": 2610
+  },
+  "resources": {
+    "originalImage": "BeNotAfraid-RysiaAnnaKaczmar2_original.png",
+    "croppedImage": "BeNotAfraid-RysiaAnnaKaczmar2_cropped.png",
+    "thumbnailImage": "BeNotAfraid-RysiaAnnaKaczmar2_thumbnail.png",
+    "luminanceImage": "BeNotAfraid-RysiaAnnaKaczmar2_luminance.png"
+  },
+  "created": 1779710506066,
+  "updated": 1779710506066
+}

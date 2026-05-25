@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/Pseudosynthesis-LeonLin2_luminance.png",
+  "metadata": null,
+  "name": "Pseudosynthesis-LeonLin2",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 362,
+    "width": 1906,
+    "height": 2541,
+    "isRotated": false,
+    "originalWidth": 1906,
+    "originalHeight": 3265
+  },
+  "resources": {
+    "originalImage": "Pseudosynthesis-LeonLin2_original.png",
+    "croppedImage": "Pseudosynthesis-LeonLin2_cropped.png",
+    "thumbnailImage": "Pseudosynthesis-LeonLin2_thumbnail.png",
+    "luminanceImage": "Pseudosynthesis-LeonLin2_luminance.png"
+  },
+  "created": 1779710605958,
+  "updated": 1779710605958
+}

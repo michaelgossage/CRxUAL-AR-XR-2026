@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/Symbion-ShuyangWang_luminance.png",
+  "metadata": null,
+  "name": "Symbion-ShuyangWang",
+  "type": "PLANAR",
+  "properties": {
+    "left": 56,
+    "top": 0,
+    "width": 1959,
+    "height": 2612,
+    "isRotated": true,
+    "originalWidth": 2071,
+    "originalHeight": 2612
+  },
+  "resources": {
+    "originalImage": "Symbion-ShuyangWang_original.png",
+    "croppedImage": "Symbion-ShuyangWang_cropped.png",
+    "thumbnailImage": "Symbion-ShuyangWang_thumbnail.png",
+    "luminanceImage": "Symbion-ShuyangWang_luminance.png"
+  },
+  "created": 1779710402543,
+  "updated": 1779710402543
+}

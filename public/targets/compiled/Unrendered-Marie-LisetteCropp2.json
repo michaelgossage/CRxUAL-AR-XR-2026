@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/Unrendered-Marie-LisetteCropp2_luminance.jpg",
+  "metadata": null,
+  "name": "Unrendered-Marie-LisetteCropp2",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 32,
+    "width": 2578,
+    "height": 3437,
+    "isRotated": false,
+    "originalWidth": 2578,
+    "originalHeight": 3500
+  },
+  "resources": {
+    "originalImage": "Unrendered-Marie-LisetteCropp2_original.jpg",
+    "croppedImage": "Unrendered-Marie-LisetteCropp2_cropped.jpg",
+    "thumbnailImage": "Unrendered-Marie-LisetteCropp2_thumbnail.jpg",
+    "luminanceImage": "Unrendered-Marie-LisetteCropp2_luminance.jpg"
+  },
+  "created": 1779710607189,
+  "updated": 1779710607189
+}

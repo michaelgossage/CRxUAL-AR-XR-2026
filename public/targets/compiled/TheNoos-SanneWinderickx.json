@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/TheNoos-SanneWinderickx_luminance.png",
+  "metadata": null,
+  "name": "TheNoos-SanneWinderickx",
+  "type": "PLANAR",
+  "properties": {
+    "left": 254,
+    "top": 0,
+    "width": 2098,
+    "height": 2797,
+    "isRotated": false,
+    "originalWidth": 2605,
+    "originalHeight": 2797
+  },
+  "resources": {
+    "originalImage": "TheNoos-SanneWinderickx_original.png",
+    "croppedImage": "TheNoos-SanneWinderickx_cropped.png",
+    "thumbnailImage": "TheNoos-SanneWinderickx_thumbnail.png",
+    "luminanceImage": "TheNoos-SanneWinderickx_luminance.png"
+  },
+  "created": 1779710492950,
+  "updated": 1779710492950
+}
