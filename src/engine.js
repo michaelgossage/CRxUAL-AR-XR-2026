@@ -1,4 +1,6 @@
 // 8th Wall + Three.js engine initialization
+const DEBUG = false; // set true to show on-screen debug overlay and DBG button
+
 import { createSceneModule, getSceneRefs } from './scene.js';
 import { loadArtworkData } from './targets.js';
 import { initInteraction } from './interaction.js';
@@ -139,40 +141,39 @@ export async function initEngine() {
   // Show scanning UI
   showScanning();
 
-  // Debug overlay for mobile (no dev tools)
-  const debugEl = document.createElement('div');
-  debugEl.id = 'ar-debug';
-  debugEl.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(0,0,0,0.7);color:#0f0;font:11px/1.4 monospace;padding:8px;max-height:30vh;overflow-y:auto;pointer-events:none;';
-  document.body.appendChild(debugEl);
+  if (DEBUG) {
+    const debugEl = document.createElement('div');
+    debugEl.id = 'ar-debug';
+    debugEl.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(0,0,0,0.7);color:#0f0;font:11px/1.4 monospace;padding:8px;max-height:30vh;overflow-y:auto;pointer-events:none;';
+    document.body.appendChild(debugEl);
 
-  // Debug toggle button
-  const debugToggle = document.createElement('button');
-  debugToggle.textContent = 'DBG';
-  debugToggle.style.cssText = 'position:fixed;top:8px;left:8px;z-index:10000;background:rgba(0,0,0,0.6);color:#0f0;border:1px solid #0f0;font:bold 11px monospace;padding:6px 10px;border-radius:4px;cursor:pointer;-webkit-tap-highlight-color:transparent;';
-  document.body.appendChild(debugToggle);
-  debugToggle.addEventListener('click', () => {
-    const hidden = debugEl.style.display === 'none';
-    debugEl.style.display = hidden ? '' : 'none';
-    debugToggle.style.opacity = hidden ? '1' : '0.4';
-  });
+    const debugToggle = document.createElement('button');
+    debugToggle.textContent = 'DBG';
+    debugToggle.style.cssText = 'position:fixed;top:8px;left:8px;z-index:10000;background:rgba(0,0,0,0.6);color:#0f0;border:1px solid #0f0;font:bold 11px monospace;padding:6px 10px;border-radius:4px;cursor:pointer;-webkit-tap-highlight-color:transparent;';
+    document.body.appendChild(debugToggle);
+    debugToggle.addEventListener('click', () => {
+      const hidden = debugEl.style.display === 'none';
+      debugEl.style.display = hidden ? '' : 'none';
+      debugToggle.style.opacity = hidden ? '1' : '0.4';
+    });
 
-  const debugLog = (msg) => {
-    const line = document.createElement('div');
-    line.textContent = `${new Date().toLocaleTimeString()} ${msg}`;
-    debugEl.appendChild(line);
-    debugEl.scrollTop = debugEl.scrollHeight;
-  };
+    const debugLog = (msg) => {
+      const line = document.createElement('div');
+      line.textContent = `${new Date().toLocaleTimeString()} ${msg}`;
+      debugEl.appendChild(line);
+      debugEl.scrollTop = debugEl.scrollHeight;
+    };
 
-  debugLog(`XR8 loaded — ${dedupedTargetData.length} targets configured`);
-  if (dedupedTargetData.length === 0) {
-    debugLog('⚠ No image target data loaded! Add targetData to artworks.json');
+    debugLog(`XR8 loaded — ${dedupedTargetData.length} targets configured`);
+    if (dedupedTargetData.length === 0) {
+      debugLog('⚠ No image target data loaded! Add targetData to artworks.json');
+    }
+
+    const origLog = console.log;
+    const origWarn = console.warn;
+    const origError = console.error;
+    console.log = (...args) => { origLog(...args); const m = args.join(' '); if (m.includes('[AR]')) debugLog(m); };
+    console.warn = (...args) => { origWarn(...args); const m = args.join(' '); if (m.includes('[AR]')) debugLog('⚠ ' + m); };
+    console.error = (...args) => { origError(...args); const m = args.join(' '); if (m.includes('[AR]')) debugLog('❌ ' + m); };
   }
-
-  // Hook into console to show [AR] messages on screen
-  const origLog = console.log;
-  const origWarn = console.warn;
-  const origError = console.error;
-  console.log = (...args) => { origLog(...args); const m = args.join(' '); if (m.includes('[AR]')) debugLog(m); };
-  console.warn = (...args) => { origWarn(...args); const m = args.join(' '); if (m.includes('[AR]')) debugLog('⚠ ' + m); };
-  console.error = (...args) => { origError(...args); const m = args.join(' '); if (m.includes('[AR]')) debugLog('❌ ' + m); };
 }
