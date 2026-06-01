@@ -53,7 +53,16 @@ function initScene() {
   camera = new THREE.PerspectiveCamera(50, w / h, 0.01, 100);
   camera.position.set(0, 0.5, 2.5);
 
-  // Mirrors the 3-light setup in src/scene.js
+  // HDRI environment — mirrors src/scene.js
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  pmrem.compileEquirectangularShader();
+  new THREE.TextureLoader().load(import.meta.env.BASE_URL + 'data/hilly_terrain_01_puresky_8k.jpg', (tex) => {
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    scene.environment = pmrem.fromEquirectangular(tex).texture;
+    pmrem.dispose();
+    tex.dispose();
+  });
+
   const hemi = new THREE.HemisphereLight(0xffffff, 0x444444, 1.0);
   hemi.position.set(0, 1, 0);
   scene.add(hemi);

@@ -111,6 +111,18 @@ export default class ModelCarouselReveal extends RevealBase {
             child.material = Array.isArray(child.material)
               ? child.material.map(makesCream)
               : makesCream();
+          } else if (materialOverride === 'frosted') {
+            const makesFrosted = () => new THREE.MeshStandardMaterial({
+              color: 0xddeeff,
+              metalness: 0.05,
+              roughness: 0.78,
+              transparent: true,
+              opacity: 0.42,
+              depthWrite: false,
+            });
+            child.material = Array.isArray(child.material)
+              ? child.material.map(makesFrosted)
+              : makesFrosted();
           } else if (child.material) {
             const mats = Array.isArray(child.material) ? child.material : [child.material];
             mats.forEach((mat) => { mat.transparent = true; mat.depthWrite = true; });
