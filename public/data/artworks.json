@@ -307,13 +307,12 @@
     "artist": "Leon Lin",
     "year": "2025",
     "description": "This project investigates whether AI-generated performers can authentically replicate human emotional expression in dance and performance. Through interviews with dancers and motion-capture experiments, it identifies three stages of human emotion (raw, mechanical, controlled) and argues that AI is limited to mimicry due to its lack of consciousness, embodiment, and lived experience. Drawing on Judith Butler's theories, it contrasts human performativity (fluid, culturally embedded) with AI's programmed rigidity. The work also explores queering digital avatars, critiques the commodification of bodies, and uses a 3D fashion film to visualize the human-machine divide.",
-    "type": "gallery",
-    "panels": [
-      {"src":"./data/Pseudosynthesis_LeonLin/Vertical_comp-1.png.avif", "width": 0.6, "height": 1.2, "caption": ""}
-    ],
-    "layout": "carousel",
-    "spacing": 0.35,
-    "curve": 0.5,
+    "type": "video",
+    "video": "https://pub-866c71617b57495a9adcc2fe87aaff0e.r2.dev/film/Pseudosynthesis.mp4",
+    "width": 0.8,
+    "height": 0.45,
+    "autoplay": true,
+    "loop": false,
     "scale": 2,
     "offset": [0, 1, 0]
   },
