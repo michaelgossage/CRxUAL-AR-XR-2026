@@ -21,14 +21,54 @@
 
   <!-- Loading Screen -->
   <div id="loading-screen">
+    <div class="home-bg" aria-hidden="true">
+      <div class="home-bg-track home-bg-track--a">
+        <img src="./targets/compiled/BeNotAfraid-RysiaAnnaKaczmar2_thumbnail.png" alt="">
+        <img src="./targets/compiled/Birdcage-JichuZhang/Birdcage-JichuZhang_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/BlackSwan-JieunSung/BlackSwan-JieunSung_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/Dehumanized-ChiAnChou2_thumbnail.png" alt="">
+        <img src="./targets/compiled/EMBODIED-VeepraMishra/EMBODIED-VeepraMishra_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/EmbodiedMemories-YoonJuChung/EmbodiedMemories-YoonJuChung_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/FauxFlora-JustinaAlexandroff/FauxFlora-JustinaAlexandroff_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/LetMeEatCake-SuzannaTeal/LetMeEatCake-SuzannaTeal_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/BeNotAfraid-RysiaAnnaKaczmar2_thumbnail.png" alt="">
+        <img src="./targets/compiled/Birdcage-JichuZhang/Birdcage-JichuZhang_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/BlackSwan-JieunSung/BlackSwan-JieunSung_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/Dehumanized-ChiAnChou2_thumbnail.png" alt="">
+        <img src="./targets/compiled/EMBODIED-VeepraMishra/EMBODIED-VeepraMishra_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/EmbodiedMemories-YoonJuChung/EmbodiedMemories-YoonJuChung_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/FauxFlora-JustinaAlexandroff/FauxFlora-JustinaAlexandroff_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/LetMeEatCake-SuzannaTeal/LetMeEatCake-SuzannaTeal_thumbnail.jpg" alt="">
+      </div>
+      <div class="home-bg-track home-bg-track--b">
+        <img src="./targets/compiled/LustFeelsLikeBadLuck-JuliaPytko2_thumbnail.png" alt="">
+        <img src="./targets/compiled/MarieSaintYves/MarieSaintYves_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/MaterialPlace-NeveBeill2_thumbnail.png" alt="">
+        <img src="./targets/compiled/Nailed-GenevieveCarr/Nailed-GenevieveCarr_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/NoLongerUs-JunShya/NoLongerUs-JunShya_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/Pseudosynthesis-LeonLin2_thumbnail.png" alt="">
+        <img src="./targets/compiled/Self-Finish-BeatriceElAsmar2_thumbnail.png" alt="">
+        <img src="./targets/compiled/Symbion-ShuyangWang_thumbnail.png" alt="">
+        <img src="./targets/compiled/LustFeelsLikeBadLuck-JuliaPytko2_thumbnail.png" alt="">
+        <img src="./targets/compiled/MarieSaintYves/MarieSaintYves_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/MaterialPlace-NeveBeill2_thumbnail.png" alt="">
+        <img src="./targets/compiled/Nailed-GenevieveCarr/Nailed-GenevieveCarr_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/NoLongerUs-JunShya/NoLongerUs-JunShya_thumbnail.jpg" alt="">
+        <img src="./targets/compiled/Pseudosynthesis-LeonLin2_thumbnail.png" alt="">
+        <img src="./targets/compiled/Self-Finish-BeatriceElAsmar2_thumbnail.png" alt="">
+        <img src="./targets/compiled/Symbion-ShuyangWang_thumbnail.png" alt="">
+      </div>
+    </div>
     <div class="loading-content">
-      <h1 class="loading-title">The Chancery Rosewood Award for Creative Transformation</h1>
-      <p class="loading-subtitle">AR Experience</p>
+      <h1 class="loading-title">Creative Transformation Award 2026</h1>
       <div class="loading-bar-track">
         <div class="loading-bar-fill" id="loading-bar"></div>
       </div>
       <p class="loading-status" id="loading-status">Initializing…</p>
-      <button class="start-button" id="start-button" style="display:none;">Start AR</button>
+      <div class="cta-pair" id="cta-pair" style="display:none;">
+        <button class="btn-scan" id="start-button">Scan and Discover</button>
+        <a class="btn-exhibition" id="exhibition-link" href="http://virtual-exhibition.chancery-rosewood-ual.com" target="_blank" rel="noopener">Full Exhibition</a>
+      </div>
     </div>
   </div>
 
@@ -40,22 +80,38 @@
     <p class="scan-text">Point at an artwork to begin</p>
   </div>
 
-  <!-- Info Panel Overlay (HUD) -->
-   <!--
-  <div id="hud" style="display:none;">
-    <div class="hud-title" id="hud-title"></div>
-  </div>-->
-
-  <!-- Artwork Info Panel (lower third) -->
-  <div id="info-panel" class="info-panel hidden" style="display:none;">
-    <button id="info-panel-close" class="info-panel-close" aria-label="Close">&times;</button>
-    <h3 class="info-panel-title" id="info-panel-title"></h3>
-    <p class="info-panel-artist" id="info-panel-artist"></p>
-    <div id="info-panel-nav" class="info-panel-nav" style="display:none;">
-      <button id="info-panel-prev" class="info-panel-nav-btn" aria-label="Previous">&#8592;</button>
-      <button id="info-panel-next" class="info-panel-nav-btn" aria-label="Next">&#8594;</button>
+  <!-- Artwork Header (top bar, slides in when artwork is found) -->
+  <div id="artwork-header" class="artwork-header hidden" style="display:none;">
+    <div class="artwork-header-content">
+      <a id="artwork-title-link" class="artwork-title"></a>
+      <p id="artwork-artist" class="artwork-artist"></p>
     </div>
-    <p class="info-panel-description" id="info-panel-description"></p>
+    <button id="artwork-close" class="artwork-close" aria-label="Close">&times;</button>
+  </div>
+
+  <!-- Description Drawer (slide-up tab at bottom) -->
+  <div id="description-drawer" class="description-drawer hidden" style="display:none;">
+    <div class="drawer-handle" id="drawer-handle">
+      <div class="drawer-pill"></div>
+      <div class="drawer-handle-row">
+        <span class="drawer-label">About this work</span>
+        <span class="drawer-chevron">&#8593;</span>
+      </div>
+    </div>
+    <div class="drawer-content-inner">
+      <div class="drawer-content">
+        <div id="drawer-nav" class="drawer-nav" style="display:none;">
+          <button id="drawer-prev" class="drawer-nav-btn" aria-label="Previous">&#8592;</button>
+          <button id="drawer-next" class="drawer-nav-btn" aria-label="Next">&#8594;</button>
+        </div>
+        <p id="artwork-description" class="artwork-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exhibition Bar (persistent bottom bar, shown once AR starts) -->
+  <div id="exhibition-bar" class="exhibition-bar hidden" style="display:none;">
+    <a id="exhibition-bar-link" class="exhibition-bar-link" href="http://virtual-exhibition.chancery-rosewood-ual.com" target="_blank" rel="noopener">Explore the Full Exhibition</a>
   </div>
 
   <!-- Error Screen -->
@@ -70,8 +126,7 @@
   <!-- Desktop QR Redirect -->
   <div id="desktop-screen" style="display:none;">
     <div class="desktop-content">
-      <h1 class="loading-title">The Chancery Rosewood Award for Creative Transformation</h1>
-      <p class="loading-subtitle">AR Experience</p>
+      <h1 class="loading-title">Creative Transformation Award 2026</h1>
       <p class="desktop-message">This experience requires a mobile device with a camera.</p>
       <div id="qr-placeholder" class="qr-placeholder">
         <p>Open this URL on your phone:</p>

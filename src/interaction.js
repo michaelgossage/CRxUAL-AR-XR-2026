@@ -166,8 +166,17 @@ function endDown() {
   }
 }
 
-function handleTap(_x, _y) {
-  // Navigation is handled via DOM buttons in the info panel
+function handleTap(x, y) {
+  const reveal = getActiveReveal();
+  if (!reveal?.panelMesh || !camera || !canvas) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const ndcX = ((x - rect.left) / rect.width) * 2 - 1;
+  const ndcY = -((y - rect.top) / rect.height) * 2 + 1;
+  _raycaster.setFromCamera({ x: ndcX, y: ndcY }, camera);
+
+  const hits = _raycaster.intersectObject(reveal.panelMesh, true);
+  if (hits.length > 0) reveal.togglePlay();
 }
 
 function getTouchDist(touches) {

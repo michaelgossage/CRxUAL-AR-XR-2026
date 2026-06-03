@@ -24,6 +24,7 @@ function normalizeConfig(raw) {
   const c = { ...raw, showOverlay: false };
   if (c.targetData) c.targetData = resolveUrl(c.targetData);
   if (c.model)      c.model      = resolveUrl(c.model);
+  if (c.video)      c.video      = resolveUrl(c.video);
   if (c.panels)     c.panels     = c.panels.map(p => ({ ...p, src: resolveUrl(p.src) }));
   if (c.items)      c.items      = c.items.map(it => ({ ...it, model: resolveUrl(it.model) }));
   return c;
@@ -182,6 +183,9 @@ function updateInfoBar(config, reveal) {
     $('inner-prev').onclick = () => reveal.navigate(-1);
     $('inner-next').onclick = () => reveal.navigate(1);
   }
+
+  const videoHint = $('video-hint');
+  if (videoHint) videoHint.style.display = type === 'video' ? 'block' : 'none';
 }
 
 function updateSidebar(activeIdx) {

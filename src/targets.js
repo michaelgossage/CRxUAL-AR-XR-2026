@@ -26,6 +26,7 @@ export async function loadArtworkData() {
   for (const aw of artworks) {
     if (aw.targetData) aw.targetData = resolveUrl(aw.targetData);
     if (aw.model) aw.model = resolveUrl(aw.model);
+    if (aw.video) aw.video = resolveUrl(aw.video);
     if (aw.panels) {
       for (const p of aw.panels) {
         if (p.src) p.src = resolveUrl(p.src);
@@ -125,7 +126,6 @@ export async function onImageFound(detail) {
       reveal.enter();
       console.log(`[AR] Reveal entered — state: ${reveal.state}, root visible: ${reveal.root.visible}, root scale: ${reveal.root.scale.x}`);
       console.log(`[AR] Anchor pos: (${anchor.position.x.toFixed(2)}, ${anchor.position.y.toFixed(2)}, ${anchor.position.z.toFixed(2)})`);
-      showHUD(`${config.title} — ${config.artist}`);
       const onClose = () => {
         if (activeReveal && !activeReveal.isExiting) {
           activeReveal.exit();
