@@ -10,7 +10,8 @@
     "height": 1536,
     "isRotated": true,
     "originalWidth": 1152,
-    "originalHeight": 1920
+    "originalHeight": 1920,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "MaterialPlace-NeveBeill_original.jpg",

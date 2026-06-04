@@ -2,6 +2,8 @@
   
   {
     "id": "BeNotAfraid",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "BeNotAfraid-RysiaAnnaKaczmar2",
     "targetData": "./targets/compiled/BeNotAfraid-RysiaAnnaKaczmar2.json",
     "title": "Be Not Afraid",
@@ -15,6 +17,8 @@
   },
   {
     "id": "Birdcage",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "Birdcage-JichuZhang",
     "targetData": "./targets/compiled/Birdcage-JichuZhang/Birdcage-JichuZhang.json",
     "title": "Birdcage",
@@ -23,16 +27,18 @@
     "description": "My paintings are spaces of suspended narration, where the relationship between people and their surroundings is never fixed, but constantly shifting — between intimacy and distance, memory and control. Inspired by familial experiences, everyday interpersonal patterns, and the lingering structures of myth, I seek to construct visual environments that do not illustrate stories, but evoke atmospheres — spaces where something is felt before it is understood. Visually, my compositions follow drifting, current-like rhythms — inspired by the unseen movement of oceanic flows, as a way to mirror the subtle undercurrents of perception and emotional experience.",
     "type": "gallery",
     "panels": [
-      {"src":"./data/Birdcage-JichuZhang/IMG_1571-1.jpg", "width": 1.0, "height": 1.0, "caption": "A"}
+      {"src":"./data/Birdcage-JichuZhang/IMG_1571-1.jpg", "width": 1.0, "height": 1.0}
     ],
     "layout": "carousel",
     "spacing": 0.35,
     "curve": 0.5,
-    "scale": 2,
-    "offset": [0, 1, 0]
+    "scale": 1.2,
+    "offset": [0, 0.8, 0]
   },
   {
     "id": "BlackSwan",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "BlackSwan-JieunSung",
     "targetData": "./targets/compiled/BlackSwan-JieunSung/BlackSwan-JieunSung.json",
     "title": "Black Swan",
@@ -41,7 +47,11 @@
     "description": "This project is about the black swan. Of all animals, I've always been particularly afraid of birds, but swans are the only ones that have ever helped me overcome that fear. So, I was intrigued to research them. I didn't even know that black swans existed before, and I was fascinated to discover this species of swan. The black swan, with its dark mood and colour, really appealed to me, so I decided to make it the focus of my project.",
     "type": "gallery",
     "panels": [
-      {"src":"./targets/compiled/BlackSwan-JieunSung/BlackSwan-JieunSung_original.jpg", "width": 0.3, "caption": "A"}
+      {"src":"./targets/compiled/BlackSwan-JieunSung/BlackSwan-JieunSung_original.jpg", "width": 0.3},
+      {"src":"./data/BlackSwan-JieunSung/IMG_1886.jpg", "width": 0.3},
+      {"src":"./data/BlackSwan-JieunSung/IMG_5414-2.png.avif", "width": 0.3},
+      {"src":"./data/BlackSwan-JieunSung/IMG_5433.jpg", "width": 0.3},
+      {"src":"./data/BlackSwan-JieunSung/IMG_5435-1.jpg", "width": 0.3}
     ],
     "layout": "carousel",
     "spacing": 0.35,
@@ -51,6 +61,8 @@
   },
   {
     "id": "Dehumanized",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "Dehumanized-ChiAnChou2",
     "targetData": "./targets/compiled/Dehumanized-ChiAnChou2.json",
     "title": "Dehumanized",
@@ -59,14 +71,14 @@
     "description": "In this era of artificial intelligence, automation and highly mature technology, the definition of human is gradually disintegrating, and machines and technology are infiltrating and dominating our daily lives. Dehumanized is a conceptual exploration of a future world in which technology no longer centers on human nature, but instead gradually controls, holds power, and eventually replaces humanity. When digital systems take over judgment, aesthetics become algorithmically defined, and the body is transformed into a tool that prioritizes efficiency, emotions and individual consciousness begin to be seen as redundant residues. This project want to use visual language to present a imaginary future worldview: redesigned organisms, individuality erased, and a void beneath the human shell. Is Dehumanized a dystopian fantasy world, or is it a mirror held up to our present? In the wave of rapid innovation, what may ultimately be sacrificed is the very essence of what makes us human.",
     "type": "gallery",
     "panels": [
-      {"src":"./data/Dehumanized-ChiAnChou/IMG_4790-Large.jpg", "width": 0.3, "caption": "A"},
-      {"src":"./data/Dehumanized-ChiAnChou/IMG_4797-Large.jpg", "width": 0.3, "caption": "A"},
-      {"src":"./data/Dehumanized-ChiAnChou/IMG_7018-Large.jpg", "width": 0.3, "caption": "A"},
-      {"src":"./data/Dehumanized-ChiAnChou/IMG_7023-Large.jpg", "width": 0.3, "caption": "A"},
-      {"src":"./data/Dehumanized-ChiAnChou/IMG_7046-Large.jpg", "width": 0.3, "caption": "A"},
-      {"src":"./data/Dehumanized-ChiAnChou/IMG_7074-Large.jpg", "width": 0.3, "caption": "A"},
-      {"src":"./data/Dehumanized-ChiAnChou/IMG_7099-Large.jpg", "width": 0.3, "caption": "A"},
-      {"src":"./data/Dehumanized-ChiAnChou/IMG_7271-Large.jpg", "width": 0.3, "caption": "A"}
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_4790-Large.jpg", "width": 0.3},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_4797-Large.jpg", "width": 0.3},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7018-Large.jpg", "width": 0.3},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7023-Large.jpg", "width": 0.3},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7046-Large.jpg", "width": 0.3},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7074-Large.jpg", "width": 0.3},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7099-Large.jpg", "width": 0.3},
+      {"src":"./data/Dehumanized-ChiAnChou/IMG_7271-Large.jpg", "width": 0.3}
     ],
     "layout": "carousel",
     "spacing": 0.35,
@@ -76,6 +88,8 @@
   },
   {
     "id": "EmbodiedMemories",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "EmbodiedMemories-YoonJuChung",
     "targetData": "./targets/compiled/EmbodiedMemories-YoonJuChung/EmbodiedMemories-YoonJuChung.json",
     "title": "Embodied Memories",
@@ -88,6 +102,8 @@
   },
   {
     "id": "FauxFlora",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "FauxFlora-JustinaAlexandroff",
     "targetData": "./targets/compiled/FauxFlora-JustinaAlexandroff/FauxFlora-JustinaAlexandroff.json",
     "title": "Faux Flora",
@@ -108,6 +124,8 @@
   },
   {
     "id": "LetMeEatCake",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "LetMeEatCake-SuzannaTeal",
     "targetData": "./targets/compiled/LetMeEatCake-SuzannaTeal/LetMeEatCake-SuzannaTeal.json",
     "title": "Let Me Eat Cake",
@@ -128,6 +146,8 @@
   },
   {
     "id": "NoLongerUs",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "NoLongerUs-JunShya",
     "targetData": "./targets/compiled/NoLongerUs-JunShya/NoLongerUs-JunShya.json",
     "title": "No Longer Us",
@@ -136,7 +156,7 @@
     "description": "By putting a mask on, we begin to play different versions of ourselves. Intrigued by the process of unbalancing composition through distinct colours, crackled textures, and seemingly incongruous references, this series of paintings explores the theme of reality versus illusion in relation to the coexistence of present and past. By capturing the intimate gesture of push and pull in a ballet performance, each dancer becomes a version of another. It reflects the idea that a different version of you exists in the mind of everyone who knows you. Curious images emerge through a process of patient layering and excavation. Parts of the human body and face are either left blank or slightly concealed, yet we, as viewers, are still able to make sense of them.",
     "type": "gallery",
     "panels": [
-      {"src":"./data/NoLongerUs-JunShya/NoLongerUs.jpg", "width": 0.3, "caption": ""}
+      {"src":"./data/NoLongerUs-JunShya/NoLongerUs.jpg", "width": 0.3}
     ],
     "layout": "carousel",
     "spacing": 0.35,
@@ -146,6 +166,8 @@
   },
   {
     "id": "Self Finish",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "Self-Finish-BeatriceElAsmar2",
     "targetData": "./targets/compiled/Self-Finish-BeatriceElAsmar2.json",
     "title": "Self Finish",
@@ -154,11 +176,11 @@
     "description": "This series of self-portraits was created using slit scan technology, mostly known for its use for photo-finish in racing sports, thus reclaiming a patriarchal automation which judges, measures and commodifies linear speed and 'progress'. Subverting our expectations of how time and space occupy the photographic image, the work highlights how the supposedly linear progression of human rights, especially for cis and trans women, is being eroded to the extent that it is actually moving backwards. A fragmented portrait of one of the two female photo-finish operators in the UK, this work invites a different kind of embodied photographic seeing.",
     "type": "gallery",
     "panels": [
-      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_1.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_2.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_3.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_4.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_5.jpg", "width": 0.3, "caption": ""}
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_1.jpg", "width": 0.3},
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_2.jpg", "width": 0.3},
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_3.jpg", "width": 0.3},
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_4.jpg", "width": 0.3},
+      {"src":"./data/Self-Finish-BeatriceElAsmar/Self-Finish_5.jpg", "width": 0.3}
     ],
     "layout": "carousel",
     "spacing": 0.35,
@@ -168,6 +190,8 @@
   },
   {
     "id": "Unrendered",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "Unrendered-Marie-LisetteCropp2",
     "targetData": "./targets/compiled/Unrendered-Marie-LisetteCropp2.json",
     "title": "Unrendered",
@@ -176,14 +200,14 @@
     "description": "Unrendered explores how the female body is represented and reshaped through technology and Western cultural expectations. The project examines the tension between the physical and the digital, and how images shape our understanding of identity and beauty. Using photogrammetry, the body is scanned into digital form, fragmenting in the process and celebrating these glitches and distortions. By reworking these scans by hand and through darkroom printing, the work restores a raw, physical presence. Inspired by Rosi Braidotti's Posthuman theory, Unrendered views the body as part of a wider ecosystem, continuously shaped by machines, nature, and technology.",
     "type": "gallery",
     "panels": [
-      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_1.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_2.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_3.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_4.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_5.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_6.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_7.jpg", "width": 0.3, "caption": ""},
-      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_8.jpg", "width": 0.3, "caption": ""}
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_1.jpg", "width": 0.3},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_2.jpg", "width": 0.3},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_3.jpg", "width": 0.3},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_4.jpg", "width": 0.3},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_5.jpg", "width": 0.3},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_6.jpg", "width": 0.3},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_7.jpg", "width": 0.3},
+      {"src":"./data/Unrendered-Marie-LisetteCropp/Unrendered_8.jpg", "width": 0.3}
     ],
     "layout": "carousel",
     "spacing": 0.35,
@@ -194,6 +218,8 @@
 
   {
     "id": "MarieSaintYves",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "MarieSaintYves",
     "targetData": "./targets/compiled/MarieSaintYves/MarieSaintYves.json",
     "title": "Experiment n58-2 Position in space",
@@ -201,7 +227,7 @@
     "year": "2024",
     "description": "An exploration of space, physical forces of the Earth and the theory of material agency. Binding air and helium with low materials (survival blankets, salvaged sack trolley, nylon thread), I aimed to challenge our perception of the World via a contrasting piece, engaging viewers' personal sensory experience while inviting them to take a step back from their daily lives. Interested in leaving work open to individual interpretations, I wonder: What's yours?",
     "model": "./data/Experiment58/Experiment58.glb",
-    "scale": 2,
+    "scale": 1.0,
     "offset": [0, 1, 0]
   },
 
@@ -209,6 +235,8 @@
 
   {
     "id": "Nailed",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "Nailed-GenevieveCarr",
     "targetData": "./targets/compiled/Nailed-GenevieveCarr/Nailed-GenevieveCarr.json",
     "title": "Nailed",
@@ -233,6 +261,8 @@
 
   {
     "id": "EMBODIED",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "EMBODIED-VeepraMishra",
     "targetData": "./targets/compiled/EMBODIED-VeepraMishra/EMBODIED-VeepraMishra.json",
     "title": "EMBODIED",
@@ -260,6 +290,8 @@
 
   {
     "id": "LustFeelsLikeBadLuck",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "LustFeelsLikeBadLuck-JuliaPytko2",
     "targetData": "./targets/compiled/LustFeelsLikeBadLuck-JuliaPytko2.json",
     "title": "Lust Feels Like Bad Luck",
@@ -273,11 +305,13 @@
     "autoplay": true,
     "loop": false,
     "scale": 2,
-    "offset": [0, 1, 0]
+    "offset": [0, 0.5, 0]
   },
 
   {
     "id": "MaterialPlace",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "MaterialPlace-NeveBeill2",
     "targetData": "./targets/compiled/MaterialPlace-NeveBeill2.json",
     "title": "Material Place",
@@ -301,6 +335,8 @@
 
   {
     "id": "Pseudosynthesis",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "Pseudosynthesis-LeonLin2",
     "targetData": "./targets/compiled/Pseudosynthesis-LeonLin2.json",
     "title": "Pseudosynthesis",
@@ -319,6 +355,8 @@
 
   {
     "id": "Symbion",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "Symbion-ShuyangWang",
     "targetData": "./targets/compiled/Symbion-ShuyangWang.json",
     "title": "Symbion",
@@ -334,6 +372,8 @@
 
   {
     "id": "TheNoos",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "TheNoos-SanneWinderickx",
     "targetData": "./targets/compiled/TheNoos-SanneWinderickx.json",
     "title": "The Noos",
@@ -348,6 +388,8 @@
 
   {
     "id": "WhimsyThroughTheWindow",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "WhimsyThroughTheWindow-SarahAbdi",
     "targetData": "./targets/compiled/WhimsyThroughTheWindow-SarahAbdi/WhimsyThroughTheWindow-SarahAbdi.json",
     "title": "Whimsy Through the Window",
@@ -356,10 +398,10 @@
     "description": "My final collection centres around whimsy from nostalgic childhood media. I chose this theme as I believe small forms of escapism is essential, especially when we live in such unstable times; from the rise of fascism to feeling the effects of climate change. Its important maintain a balance to avoid burnout and actually be able to help others. I created woven samples intended as curtains/drapes to block out the grey and dreary London landscape, made from waste and deadstock materials.",
     "type": "gallery",
     "panels": [
-      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250510_104607.jpg", "width": 0.45, "caption": ""},
-      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250530_193031-rotated.jpg", "width": 0.45, "caption": ""},
-      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250530_193358.jpg", "width": 0.45, "caption": ""},
-      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250530_193601-1.jpg", "width": 0.45, "caption": ""}
+      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250510_104607.jpg", "width": 0.45},
+      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250530_193031-rotated.jpg", "width": 0.45},
+      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250530_193358.jpg", "width": 0.45},
+      {"src":"./data/WhimsyThroughTheWindow_SarahAbdi/20250530_193601-1.jpg", "width": 0.45}
     ],
     "layout": "carousel",
     "spacing": 0.5,
@@ -370,6 +412,8 @@
 
   {
     "id": "SynestheticSkin",
+    "reanchor": false,
+    "smoothTracking": true,
     "targetName": "SynestheticSkin-JianingDing2",
     "targetData": "./targets/compiled/SynestheticSkin-JianingDing2.json",
     "title": "Synesthetic Skin",

@@ -37,6 +37,7 @@ export default class ModelCarouselReveal extends RevealBase {
     this._currentIndex = 0;
     this._targetAngle = 0;
     this._currentAngle = 0;
+    this._currentTilt = 0;
     // Invisible per-model hitboxes — exposed for interaction.js drag detection
     this.modelHitboxes = [];
   }
@@ -173,6 +174,15 @@ export default class ModelCarouselReveal extends RevealBase {
   rotateDelta(dx) {
     this._currentAngle += dx * 0.005;
     this._ring.rotation.y = this._currentAngle;
+  }
+
+  tiltDelta(dy) {
+    this._currentTilt = THREE.MathUtils.clamp(
+      this._currentTilt + dy * 0.005,
+      -Math.PI / 2,
+      Math.PI / 2,
+    );
+    this._ring.rotation.x = this._currentTilt;
   }
 
   get _focusedModel() {

@@ -10,7 +10,8 @@
     "height": 3263,
     "isRotated": false,
     "originalWidth": 2605,
-    "originalHeight": 3263
+    "originalHeight": 3263,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "Dehumanized-ChiAnChou2_original.png",

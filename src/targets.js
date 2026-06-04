@@ -1,6 +1,9 @@
 // Target manager — loads artwork metadata, handles image target events, manages active reveal
 import createReveal from './reveals/createReveal.js';
 import { triggerHaptic, showHUD, hideHUD, showScanning, hideScanning, showInfoPanel, hideInfoPanel } from './ui.js';
+import { dampVector3, dampQuaternion } from './utils.js';
+
+const ANCHOR_DAMPING = 6; // lower = floatier; higher = snappier
 
 let artworks = [];
 let artworkMap = new Map();
@@ -64,12 +67,14 @@ export async function onImageFound(detail) {
   console.log(`[AR] Matched artwork: "${config.title}", model: ${config.model}`);
   console.log(`[AR] activeReveal=${!!activeReveal}, activeTargetName=${activeTargetName}, sceneRef=${!!sceneRef}, cameraRef=${!!cameraRef}`);
 
-  // If same target re-found, switch back to tracked
+  // If same target re-found, optionally switch back to tracked
   if (activeReveal && activeTargetName === name && !activeReveal.isDisposed) {
-    console.log(`[AR] Same target re-found, switching to tracked`);
-    const anchor = anchorGroups.get(name);
-    updateAnchor(anchor, position, rotation);
-    activeReveal.switchToTracked(anchor);
+    if (activeReveal.config?.reanchor !== false) {
+      console.log(`[AR] Same target re-found, switching to tracked`);
+      const anchor = anchorGroups.get(name);
+      snapAnchor(anchor, position, rotation);
+      activeReveal.switchToTracked(anchor);
+    }
     return;
   }
 
@@ -97,7 +102,7 @@ export async function onImageFound(detail) {
     sceneRef.add(anchor);
     anchorGroups.set(name, anchor);
   }
-  updateAnchor(anchor, position, rotation);
+  snapAnchor(anchor, position, rotation);
 
   console.log(`[AR] Creating reveal (type="${config.type || 'model'}")…`);
 
@@ -170,10 +175,28 @@ export function onImageLost(detail) {
   }
 }
 
-// Update anchor group transform from 8th Wall data
-function updateAnchor(group, position, rotation) {
+// Snap anchor to position immediately — used on first placement so there's no initial lag
+function snapAnchor(group, position, rotation) {
   group.position.set(position.x, position.y, position.z);
   group.quaternion.set(rotation.x, rotation.y, rotation.z, rotation.w);
+  if (!group._targetPos) {
+    group._targetPos = group.position.clone();
+    group._targetQuat = group.quaternion.clone();
+  } else {
+    group._targetPos.copy(group.position);
+    group._targetQuat.copy(group.quaternion);
+  }
+}
+
+// Update smooth target only — actual anchor damps toward it in tickReveals
+function updateAnchor(group, position, rotation) {
+  if (!group._targetPos) {
+    group.position.set(position.x, position.y, position.z);
+    group.quaternion.set(rotation.x, rotation.y, rotation.z, rotation.w);
+    return;
+  }
+  group._targetPos.set(position.x, position.y, position.z);
+  group._targetQuat.set(rotation.x, rotation.y, rotation.z, rotation.w);
 }
 
 // Tick active reveal (called from render loop)
@@ -193,6 +216,15 @@ export function tickReveals(dt) {
       activeTargetName = null;
       hideInfoPanel();
       showScanning();
+    }
+  }
+
+  // Damp anchor toward live tracker target for floaty, jitter-free tracking
+  if (activeTargetName && activeReveal?.config?.smoothTracking !== false) {
+    const anchor = anchorGroups.get(activeTargetName);
+    if (anchor?._targetPos) {
+      dampVector3(anchor.position, anchor._targetPos, ANCHOR_DAMPING, dt);
+      dampQuaternion(anchor.quaternion, anchor._targetQuat, ANCHOR_DAMPING, dt);
     }
   }
 }

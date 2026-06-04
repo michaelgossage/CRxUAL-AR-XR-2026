@@ -10,7 +10,8 @@
     "height": 2540,
     "isRotated": true,
     "originalWidth": 1905,
-    "originalHeight": 2611
+    "originalHeight": 2611,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "Self-Finish-BeatriceElAsmar2_original.png",

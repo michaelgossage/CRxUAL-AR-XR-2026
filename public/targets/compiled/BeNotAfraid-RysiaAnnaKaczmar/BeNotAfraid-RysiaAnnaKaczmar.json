@@ -10,7 +10,8 @@
     "height": 3100,
     "isRotated": true,
     "originalWidth": 2325,
-    "originalHeight": 4100
+    "originalHeight": 4100,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "BeNotAfraid-RysiaAnnaKaczmar_original.jpg",

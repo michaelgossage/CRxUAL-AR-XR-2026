@@ -10,7 +10,8 @@
     "height": 4000,
     "isRotated": false,
     "originalWidth": 3000,
-    "originalHeight": 4000
+    "originalHeight": 4000,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "EMBODIED-VeepraMishra_original.jpg",

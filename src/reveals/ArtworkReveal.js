@@ -28,13 +28,13 @@ export default class ArtworkReveal extends RevealBase {
     this.loaded = false;
   }
 
-  _createFallbackBox(scale, offset) {
+  _createFallbackBox(scale) {
     console.log('[AR] Creating fallback box');
     const geo = new THREE.BoxGeometry(0.15, 0.15, 0.15);
     const mat = new THREE.MeshStandardMaterial({ color: 0xe2b657, metalness: 0.3, roughness: 0.6 });
     const box = new THREE.Mesh(geo, mat);
     box.scale.setScalar(scale);
-    box.position.set(offset[0], offset[1] + 0.1, offset[2]);
+    box.position.set(0, 0.1, 0);
     return box;
   }
 
@@ -70,7 +70,7 @@ export default class ArtworkReveal extends RevealBase {
       // Clone the scene so cached model isn't consumed
       model = gltf.scene.clone();
       model.scale.setScalar(scale);
-      model.position.set(offset[0], offset[1], offset[2]);
+      model.position.set(0, 0, 0); // offset is applied to _pivot so rotation is around the model's origin
       model.rotation.set(
         THREE.MathUtils.degToRad(rotation[0]),
         THREE.MathUtils.degToRad(rotation[1]),
@@ -102,14 +102,21 @@ export default class ArtworkReveal extends RevealBase {
       }
     } catch (err) {
       console.error(`[AR] Failed to load model "${modelUrl}":`, err);
-      model = this._createFallbackBox(scale, offset);
+      model = this._createFallbackBox(scale);
     }
 
-    this.root.add(model);
+    this._pivot = new THREE.Group();
+    this._pivot.position.set(offset[0], offset[1], offset[2]);
+    this._pivot.add(model);
+    this.root.add(this._pivot);
     this.model = model;
 
     await this._initOverlay();
     this.loaded = true;
+  }
+
+  get rotationTarget() {
+    return this._pivot;
   }
 
   onTick(dt) {

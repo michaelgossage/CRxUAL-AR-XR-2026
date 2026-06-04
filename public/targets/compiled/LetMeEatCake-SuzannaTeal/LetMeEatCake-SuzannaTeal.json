@@ -10,7 +10,8 @@
     "height": 1820,
     "isRotated": false,
     "originalWidth": 1365,
-    "originalHeight": 2048
+    "originalHeight": 2048,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "LetMeEatCake-SuzannaTeal_original.jpg",

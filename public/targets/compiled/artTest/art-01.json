@@ -10,7 +10,8 @@
     "height": 700,
     "isRotated": true,
     "originalWidth": 700,
-    "originalHeight": 700
+    "originalHeight": 700,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "art-01_original.jpg",

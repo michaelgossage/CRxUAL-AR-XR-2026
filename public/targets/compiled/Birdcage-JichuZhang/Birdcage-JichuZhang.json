@@ -10,7 +10,8 @@
     "height": 2960,
     "isRotated": true,
     "originalWidth": 2748,
-    "originalHeight": 2960
+    "originalHeight": 2960,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "Birdcage-JichuZhang_original.jpg",

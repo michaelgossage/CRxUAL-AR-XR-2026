@@ -10,7 +10,8 @@
     "height": 1440,
     "isRotated": true,
     "originalWidth": 1080,
-    "originalHeight": 1920
+    "originalHeight": 1920,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "LustFeelsLikeBadLuck-JuliaPytko_original.jpg",

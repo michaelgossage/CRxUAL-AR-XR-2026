@@ -10,7 +10,8 @@
     "height": 823,
     "isRotated": false,
     "originalWidth": 800,
-    "originalHeight": 823
+    "originalHeight": 823,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "EmbodiedMemories-YoonJuChung_original.jpg",

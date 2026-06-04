@@ -10,7 +10,8 @@
     "height": 1072,
     "isRotated": true,
     "originalWidth": 804,
-    "originalHeight": 1920
+    "originalHeight": 1920,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "Pseudosynthesis-LeonLin_original.jpg",

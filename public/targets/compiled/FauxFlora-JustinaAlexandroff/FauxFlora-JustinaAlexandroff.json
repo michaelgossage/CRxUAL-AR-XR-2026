@@ -10,7 +10,8 @@
     "height": 1067,
     "isRotated": false,
     "originalWidth": 800,
-    "originalHeight": 1132
+    "originalHeight": 1132,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "FauxFlora-JustinaAlexandroff_original.jpg",

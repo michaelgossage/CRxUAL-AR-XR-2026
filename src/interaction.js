@@ -131,6 +131,7 @@ function handleDrag(x, y) {
     if (reveal && reveal.root) {
       if (reveal.autoSpin) {
         reveal.rotateDelta(dx); // auto-spin: drag spins the whole ring
+        if (reveal.tiltDelta) reveal.tiltDelta(dy);
       } else {
         let target;
         if (dragTarget !== null) {
@@ -138,9 +139,16 @@ function handleDrag(x, y) {
         } else if (reveal.modelHitboxes) {
           target = null; // model-carousel but missed all models — no rotation
         } else {
-          target = !reveal._carousel ? reveal.root : null; // all other reveal types
+          target = !reveal._carousel ? (reveal.rotationTarget ?? reveal.root) : null; // all other reveal types
         }
-        if (target) target.rotation.y += dx * 0.005;
+        if (target) {
+          target.rotation.y += dx * 0.005;
+          target.rotation.x = THREE.MathUtils.clamp(
+            target.rotation.x - dy * 0.005,
+            -Math.PI / 2,
+            Math.PI / 2,
+          );
+        }
       }
     }
   }

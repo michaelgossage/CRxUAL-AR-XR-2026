@@ -10,7 +10,8 @@
     "height": 1815,
     "isRotated": true,
     "originalWidth": 1361,
-    "originalHeight": 1920
+    "originalHeight": 1920,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "SynestheticSkin-JianingDing_original.png",

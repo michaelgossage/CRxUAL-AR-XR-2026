@@ -10,7 +10,8 @@
     "height": 2618,
     "isRotated": true,
     "originalWidth": 2515,
-    "originalHeight": 2618
+    "originalHeight": 2618,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "LustFeelsLikeBadLuck-JuliaPytko2_original.png",

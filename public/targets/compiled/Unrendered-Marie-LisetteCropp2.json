@@ -10,7 +10,8 @@
     "height": 3437,
     "isRotated": false,
     "originalWidth": 2578,
-    "originalHeight": 3500
+    "originalHeight": 3500,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "Unrendered-Marie-LisetteCropp2_original.jpg",

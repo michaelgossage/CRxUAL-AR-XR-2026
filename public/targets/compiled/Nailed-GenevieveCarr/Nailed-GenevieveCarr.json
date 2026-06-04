@@ -11,7 +11,8 @@
     "height": 2560,
     "isRotated": false,
     "originalWidth": 1920,
-    "originalHeight": 2766
+    "originalHeight": 2766,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "Nailed-GenevieveCarr_original.jpg",

@@ -10,7 +10,8 @@
     "height": 1920,
     "isRotated": true,
     "originalWidth": 1920,
-    "originalHeight": 1920
+    "originalHeight": 1920,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "NoLongerUs-JunShya_original.jpg",

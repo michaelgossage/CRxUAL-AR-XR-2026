@@ -10,7 +10,8 @@
     "height": 2560,
     "isRotated": false,
     "originalWidth": 1920,
-    "originalHeight": 2560
+    "originalHeight": 2560,
+    "physicalWidthInMeters": 0.2
   },
   "resources": {
     "originalImage": "BlackSwan-JieunSung_original.jpg",

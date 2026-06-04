@@ -116,6 +116,13 @@ Every entry must have: `id`, `targetName`, `targetData`, `title`, `artist`, `yea
 }
 ```
 
+**Motion-feel flags (apply to any reveal type):**
+
+| Field | Default | Effect |
+|-------|---------|--------|
+| `"reanchor": false` | `true` | Once revealed, re-seeing the image does NOT pull the content back to it — content stays world-locked in free mode |
+| `"smoothTracking": false` | `true` | Disables exponential anchor damping; the content tracks the image with raw 8th Wall data (may jitter). Damping factor is `ANCHOR_DAMPING = 6` in `src/targets.js` — lower = floatier, higher = snappier |
+
 **Image gallery:**
 ```json
 {
