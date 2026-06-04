@@ -68,7 +68,6 @@
       {"src":"./data/Dehumanized-ChiAnChou/IMG_7099-Large.jpg", "width": 0.3, "caption": "A"},
       {"src":"./data/Dehumanized-ChiAnChou/IMG_7271-Large.jpg", "width": 0.3, "caption": "A"}
     ],
-    
     "layout": "carousel",
     "spacing": 0.35,
     "scale": 3,
