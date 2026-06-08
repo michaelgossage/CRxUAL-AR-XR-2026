@@ -136,7 +136,7 @@ html, body {
   -webkit-backdrop-filter: blur(22px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 16px;
-  padding: 40px 44px 34px;
+  padding: 40px 20px 34px;
   max-width: 420px;
   width: calc(100% - 48px);
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.09);
@@ -689,6 +689,138 @@ html, body {
   word-break: break-all;
   font-family: monospace;
   font-weight: 600;
+}
+
+/* Disclaimer + Terms button (loading screen footer) */
+.loading-disclaimer {
+  font-family: 'Swiss721BT', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.65em;
+  color: rgba(0, 0, 0, 0.28);
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  padding: 0 4px;
+}
+
+.loading-footer-btns {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-terms {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.38);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  padding: 6px 18px;
+  font-family: 'Swiss721BT', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.65em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 130ms ease, border-color 130ms ease, background 130ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-terms:hover {
+  color: rgba(0, 0, 0, 0.60);
+  border-color: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Terms of Use / Privacy Modals */
+#terms-modal,
+#privacy-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#terms-backdrop,
+#privacy-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.terms-card {
+  position: relative;
+  background: rgba(245, 243, 239, 0.97);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.20);
+  max-width: 420px;
+  width: calc(100% - 48px);
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.terms-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  flex-shrink: 0;
+}
+
+.terms-heading {
+  font-family: 'Swiss721BT', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #111;
+  letter-spacing: -0.01em;
+}
+
+.terms-close {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 120ms ease, color 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.terms-close:hover {
+  background: rgba(0, 0, 0, 0.10);
+  color: #111;
+}
+
+.terms-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px;
+  font-family: 'Swiss721BT', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.60);
+  line-height: 1.6;
+}
+
+.terms-body p + p {
+  margin-top: 1rem;
+}
+
+.terms-body strong {
+  color: #111;
 }
 
 /* ─── 8th Wall sensors prompt override ─────────────────────────── */

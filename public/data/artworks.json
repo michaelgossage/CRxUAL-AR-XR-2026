@@ -184,7 +184,7 @@
     ],
     "layout": "carousel",
     "spacing": 0.35,
-    "scale": 3,
+    "scale": 5,
     "curve": 0.5,
     "offset": [0, 1, 0]
   },

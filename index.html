@@ -69,6 +69,11 @@
         <button class="btn-scan" id="start-button">Scan and Discover</button>
         <a class="btn-exhibition" id="exhibition-link" href="http://virtual-exhibition.chancery-rosewood-ual.com" target="_blank" rel="noopener">Full Exhibition</a>
       </div>
+      <p class="loading-disclaimer">By entering this experience you agree to our terms of use. All artworks are the property of their respective artists. Unauthorised reproduction is prohibited.</p>
+      <div class="loading-footer-btns">
+        <button class="btn-terms" type="button" id="terms-btn">Terms of Use</button>
+        <button class="btn-terms" type="button" id="privacy-btn">Privacy</button>
+      </div>
     </div>
   </div>
 
@@ -131,6 +136,56 @@
       <div id="qr-placeholder" class="qr-placeholder">
         <p>Open this URL on your phone:</p>
         <p class="url-display" id="url-display"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms of Use Modal -->
+  <div id="terms-modal" style="display:none;">
+    <div id="terms-backdrop"></div>
+    <div class="terms-card">
+      <div class="terms-header">
+        <span class="terms-heading">Terms of Use</span>
+        <button class="terms-close" id="terms-close" aria-label="Close terms">&#x2715;</button>
+      </div>
+      <div class="terms-body">
+        <p><strong>1. Use of this Site</strong><br>
+        These Terms govern your access to the Creative Transformation Awards 2026 AR Experience, presented by The Chancery Rosewood. By entering this experience, you agree to be bound by these Terms. If you do not agree, please do not proceed.</p>
+
+        <p><strong>2. Permitted Use</strong><br>
+        You may access this experience for personal, non-commercial viewing only. No part of this experience may be reproduced, distributed, publicly displayed, or commercially exploited without prior written consent from the relevant rights holder.</p>
+
+        <p><strong>3. Artist Copyright</strong><br>
+        All artworks displayed in this experience remain the exclusive copyright and intellectual property of the individual artist, in accordance with the Copyright, Designs and Patents Act 1988. 30 GS LP trading as The Chancery Rosewood, the Creative Transformation Awards and their organisers claim no ownership or reproduction rights in any exhibited artwork. Any citation or reproduction of artwork must include clear attribution to the artist.</p>
+
+        <p><strong>4. Exhibition Content</strong><br>
+        All content featured in this experience, including artworks, 3D models and media, remains the property of its respective rights holders and is used with permission. You may not reproduce, extract, distribute or otherwise exploit any content without the prior consent of the relevant rights holder. You may not reverse-engineer, decompile or extract source code or 3D assets from this experience, nor use automated tools to scrape, harvest or otherwise collect content.</p>
+
+        <p><strong>5. Privacy</strong><br>
+        Camera access is required to enable augmented reality. The camera feed is processed entirely on your device.</p>
+
+        <p><strong>6. Disclaimers</strong><br>
+        This experience is provided &ldquo;as is&rdquo; without warranties of any kind. We do not guarantee uninterrupted availability or that content is free from errors.</p>
+
+        <p><strong>7. Limitation of Liability</strong><br>
+        To the fullest extent permitted by law, 30 GS LP trading as The Chancery Rosewood and the organisers of the Creative Transformation Awards 2026 accept no liability for any loss or damage arising directly or indirectly from the use of, or inability to access, this experience. Nothing in these Terms excludes or limits liability for death or personal injury caused by negligence, fraud, fraudulent misrepresentation, or any liability that cannot lawfully be excluded or limited under applicable law.</p>
+
+        <p><strong>8. Governing Law</strong><br>
+        These Terms are governed by the laws of England and Wales. You agree to submit to the exclusive jurisdiction of the courts of England and Wales in respect of any dispute arising from these Terms.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Modal -->
+  <div id="privacy-modal" style="display:none;">
+    <div id="privacy-backdrop"></div>
+    <div class="terms-card">
+      <div class="terms-header">
+        <span class="terms-heading">Privacy Notice</span>
+        <button class="terms-close" id="privacy-close" aria-label="Close privacy notice">&#x2715;</button>
+      </div>
+      <div class="terms-body">
+        <p>This experience requires access to your device camera to enable augmented reality. The camera feed is processed entirely on your device.</p>
       </div>
     </div>
   </div>

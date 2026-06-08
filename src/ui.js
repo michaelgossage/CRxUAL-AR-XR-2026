@@ -38,6 +38,30 @@ export function initUI() {
   elements.desktopScreen = document.getElementById('desktop-screen');
   elements.urlDisplay = document.getElementById('url-display');
 
+  elements.termsBtn      = document.getElementById('terms-btn');
+  elements.termsModal    = document.getElementById('terms-modal');
+  elements.termsBackdrop = document.getElementById('terms-backdrop');
+  elements.termsClose    = document.getElementById('terms-close');
+
+  const openTerms  = () => { if (elements.termsModal) elements.termsModal.style.display = 'flex'; };
+  const closeTerms = () => { if (elements.termsModal) elements.termsModal.style.display = 'none'; };
+
+  elements.termsBtn?.addEventListener('click', openTerms);
+  elements.termsClose?.addEventListener('click', closeTerms);
+  elements.termsBackdrop?.addEventListener('click', closeTerms);
+
+  elements.privacyBtn      = document.getElementById('privacy-btn');
+  elements.privacyModal    = document.getElementById('privacy-modal');
+  elements.privacyBackdrop = document.getElementById('privacy-backdrop');
+  elements.privacyClose    = document.getElementById('privacy-close');
+
+  const openPrivacy  = () => { if (elements.privacyModal) elements.privacyModal.style.display = 'flex'; };
+  const closePrivacy = () => { if (elements.privacyModal) elements.privacyModal.style.display = 'none'; };
+
+  elements.privacyBtn?.addEventListener('click', openPrivacy);
+  elements.privacyClose?.addEventListener('click', closePrivacy);
+  elements.privacyBackdrop?.addEventListener('click', closePrivacy);
+
   if (elements.artworkClose) {
     elements.artworkClose.addEventListener('click', () => {
       const cb = artworkCloseCallback;
