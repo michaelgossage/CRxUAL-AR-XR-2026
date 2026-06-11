@@ -14,6 +14,8 @@ export default class VideoReveal extends RevealBase {
   constructor(opts) {
     super(opts);
     this._video = null;
+    this._videoTex = null;
+    this._placeholderTex = null;
     this.panelMesh = null;
     this._controls = null;
     this._playBtn = null;
@@ -59,16 +61,27 @@ export default class VideoReveal extends RevealBase {
     // If already buffered (cached), canplay won't fire again
     if (autoplay && this._video.readyState >= 3) this._playWithAudio();
 
-    const texture = new THREE.VideoTexture(this._video);
-    texture.colorSpace = THREE.SRGBColorSpace;
-    texture.minFilter = THREE.LinearFilter;
-    texture.magFilter = THREE.LinearFilter;
+    this._placeholderTex = this._buildPlaceholder();
+
+    this._videoTex = new THREE.VideoTexture(this._video);
+    this._videoTex.colorSpace = THREE.SRGBColorSpace;
+    this._videoTex.minFilter = THREE.LinearFilter;
+    this._videoTex.magFilter = THREE.LinearFilter;
 
     const faceMat = new THREE.MeshBasicMaterial({
-      map: texture,
+      map: this._placeholderTex,
       transparent: true,
       side: THREE.DoubleSide,
     });
+
+    this._video.addEventListener('playing', () => {
+      if (!this.panelMesh) return;
+      const mat = this.panelMesh.material[4];
+      mat.map = this._videoTex;
+      mat.needsUpdate = true;
+      this._placeholderTex?.dispose();
+      this._placeholderTex = null;
+    }, { once: true });
     const sideMat = new THREE.MeshStandardMaterial({
       color: 0xf0ede8,
       roughness: 0.9,
@@ -110,6 +123,39 @@ export default class VideoReveal extends RevealBase {
   exit() {
     super.exit();
     if (this._controls) this._controls.style.display = 'none';
+  }
+
+  _buildPlaceholder() {
+    const W = 800, H = 450, cx = W / 2, cy = H / 2;
+    const canvas = document.createElement('canvas');
+    canvas.width = W;
+    canvas.height = H;
+    const ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = 'rgba(15, 10, 30, 0.92)';
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.beginPath();
+    ctx.arc(cx, cy - 20, 72, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,255,255,0.10)';
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(cx - 22, cy - 52);
+    ctx.lineTo(cx - 22, cy + 12);
+    ctx.lineTo(cx + 42, cy - 20);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(255,255,255,0.60)';
+    ctx.fill();
+
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.font = '20px Swiss721BT, Helvetica, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Tap to play', cx, cy + 82);
+
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
   }
 
   _buildControls() {
@@ -223,6 +269,8 @@ export default class VideoReveal extends RevealBase {
   }
 
   onDispose() {
+    this._placeholderTex?.dispose();
+    this._placeholderTex = null;
     if (this._video) {
       this._video.pause();
       this._video.removeAttribute('src');
