@@ -79,10 +79,14 @@ export async function onImageFound(detail) {
   }
 
   // Different target — dismiss current
-  if (activeReveal && !activeReveal.isExiting && !activeReveal.isDisposed) {
+  if (activeReveal && !activeReveal.isDisposed) {
     console.log(`[AR] Dismissing previous reveal`);
-    activeReveal.exit();
-    exitingReveals.push(activeReveal);
+    if (!activeReveal.isExiting) {
+      activeReveal.exit();
+    }
+    if (!exitingReveals.includes(activeReveal)) {
+      exitingReveals.push(activeReveal);
+    }
     activeReveal = null;
     activeTargetName = null;
     hideHUD();
@@ -132,9 +136,13 @@ export async function onImageFound(detail) {
       console.log(`[AR] Reveal entered — state: ${reveal.state}, root visible: ${reveal.root.visible}, root scale: ${reveal.root.scale.x}`);
       console.log(`[AR] Anchor pos: (${anchor.position.x.toFixed(2)}, ${anchor.position.y.toFixed(2)}, ${anchor.position.z.toFixed(2)})`);
       const onClose = () => {
-        if (activeReveal && !activeReveal.isExiting) {
+        if (activeReveal && !activeReveal.isExiting && !activeReveal.isDisposed) {
           activeReveal.exit();
+          exitingReveals.push(activeReveal);
+          activeReveal = null;
+          activeTargetName = null;
           hideHUD();
+          hideInfoPanel();
         }
       };
       const isModelCarousel = config.type === 'model-carousel';
