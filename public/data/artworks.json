@@ -12,7 +12,7 @@
     "description": "Be Not Afraid is a sculptural sound work inspired by biblically accurate angels and childhood comfort objects. Constructed from plush fabric and embedded with a speaker in place of an eye, the piece features six oversized wings in various states of motion. It explores the intersection of sacred imagery and emotional attachment, questioning how tenderness and terror can coexist within a single form. Sound pulses through the speaker to activate the work sonically and symbolically. Drawing from religious aesthetics while acknowledging the erosion of moral certainty in contemporary life, Be Not Afraid invites reflection on how belief, fear, and care shape the way we encounter the unknown.",
     "model": "./data/BeNotAfraid-RysiaAnnaKaczmar/BeNotAfraid_Artwork3D.glb",
     "scale": 1.2,
-    "offset": [0, 2, 0],
+    "offset": [0, 1, 0],
     "showOverlay": true
   },
   {
@@ -364,9 +364,9 @@
     "year": "2025",
     "description": "Symbion is a conceptual model for human–embodied AI collaboration that centers on a novel human–AI relationship spectrum under which a biomimetic robotic hand operates. The spectrum spans five modes—Manual, Training, Collaboration, Guidance, and Automated—each reflecting a different balance of control and learning between human and AI. Within this framework, the robotic hand is designed to collaborate seamlessly with humans in existing ergonomic contexts while expressing movements in ways that are naturally intuitive and easy to interpret. Together, these elements create a unified environment for exploring how embodied AI and humans can learn from one another, share control, and work in synergy.",
     "model": "./data/Symbion/symbionHandandPiano.glb",
-    "scale": 0.7,
+    "scale": 1.2,
     "offset": [0, 0.5, 0],
-    "rotation": [0, 180, 0],
+    "rotation": [0, 135, 0],
     "showOverlay": false
   },
 
