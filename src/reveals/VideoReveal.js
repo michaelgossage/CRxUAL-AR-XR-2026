@@ -53,8 +53,11 @@ export default class VideoReveal extends RevealBase {
       this._video.addEventListener('canplay', () => this._playWithAudio(), { once: true });
     }
 
-    // Set src last — triggers load, which fires canplay when ready
+    // Set src last — triggers load
     this._video.src = src;
+
+    // If already buffered (cached), canplay won't fire again
+    if (autoplay && this._video.readyState >= 3) this._playWithAudio();
 
     const texture = new THREE.VideoTexture(this._video);
     texture.colorSpace = THREE.SRGBColorSpace;
@@ -89,7 +92,7 @@ export default class VideoReveal extends RevealBase {
     document.addEventListener('webkitfullscreenchange', this._onFSChange);
   }
 
-  // Try to play with audio; fall back to muted if autoplay policy blocks it
+  // Try unmuted; fall back to muted if autoplay policy blocks audio
   _playWithAudio() {
     if (!this._video) return;
     this._video.muted = false;
@@ -102,9 +105,6 @@ export default class VideoReveal extends RevealBase {
   enter() {
     super.enter();
     if (this._controls) this._controls.style.display = 'flex';
-    if (this._video && this.config.autoplay !== false) {
-      if (this._video.paused) this._playWithAudio();
-    }
   }
 
   exit() {
@@ -117,23 +117,29 @@ export default class VideoReveal extends RevealBase {
     wrap.style.cssText = [
       'display:none',
       'position:fixed',
-      'bottom:32px',
+      'bottom:calc(126px + env(safe-area-inset-bottom, 0px))',
       'left:50%',
       'transform:translateX(-50%)',
-      'gap:16px',
+      'gap:8px',
       'align-items:center',
-      'z-index:1000',
+      'z-index:26',
+      'background:rgba(0,0,0,0.38)',
+      'backdrop-filter:blur(14px)',
+      '-webkit-backdrop-filter:blur(14px)',
+      'border:1px solid rgba(255,255,255,0.12)',
+      'border-radius:100px',
+      'padding:5px',
     ].join(';');
 
     const mkBtn = (html, onClick) => {
       const b = document.createElement('button');
       b.style.cssText = [
-        'width:52px',
-        'height:52px',
+        'width:44px',
+        'height:44px',
         'border-radius:50%',
-        'border:2px solid #e2b657',
-        'background:rgba(26,10,46,0.85)',
-        'color:#e2b657',
+        'border:1px solid rgba(255,255,255,0.22)',
+        'background:rgba(255,255,255,0.07)',
+        'color:rgba(255,255,255,0.88)',
         'cursor:pointer',
         'display:flex',
         'align-items:center',
@@ -141,14 +147,19 @@ export default class VideoReveal extends RevealBase {
         '-webkit-tap-highlight-color:transparent',
         'outline:none',
         'padding:0',
+        'transition:background 120ms ease',
+        'flex-shrink:0',
       ].join(';');
       b.innerHTML = html;
+      b.addEventListener('pointerdown', () => { b.style.background = 'rgba(255,255,255,0.22)'; });
+      b.addEventListener('pointerup',   () => { b.style.background = 'rgba(255,255,255,0.07)'; });
+      b.addEventListener('pointerleave',() => { b.style.background = 'rgba(255,255,255,0.07)'; });
       b.addEventListener('click', e => { e.stopPropagation(); onClick(); });
       return b;
     };
 
-    this._playBtn  = mkBtn(PAUSE_ICON,   () => this._togglePlay());
-    this._muteBtn  = mkBtn(MUTED_ICON,   () => this._toggleMute());
+    this._playBtn  = mkBtn(PAUSE_ICON,    () => this._togglePlay());
+    this._muteBtn  = mkBtn(MUTED_ICON,    () => this._toggleMute());
     this._fsBtn    = mkBtn(FS_ENTER_ICON, () => this._toggleFullscreen());
 
     wrap.appendChild(this._playBtn);
@@ -194,6 +205,10 @@ export default class VideoReveal extends RevealBase {
     if (!this._fsBtn) return;
     const inFS = !!(document.fullscreenElement || document.webkitFullscreenElement);
     this._fsBtn.innerHTML = inFS ? FS_EXIT_ICON : FS_ENTER_ICON;
+    // Resume if the browser paused the video on fullscreen exit
+    if (!inFS && this._video && this._video.paused) {
+      this._video.play().catch(() => {});
+    }
   }
 
   onTick(dt) {
